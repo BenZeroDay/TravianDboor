@@ -1,0 +1,25 @@
+<?php
+/**
+*
+* @ This file is created by Decodeby.US
+* @ deZender Public (PHP5 Decompiler)
+*
+* @	Version			:	1.0.0.0
+* @	Author			:	Ps2Gamer & Cyko
+* @	Release on		:	30.05.2011
+* @	Official site	:	http://decodeby.us
+*
+*/
+
+require_once( LANG_UI_PATH."custbuilds.php" );
+if ( 1 < $this->crannyProperty['buildingCount'] )
+{
+    echo "<br/><b>";
+    echo LANGUI_CUSTBU_CRANNYEXTRA;
+    echo " : ";
+    echo $this->crannyProperty['totalSize'];
+    echo " ";
+    echo constant( "item_unit_".$this->buildProperties['building']['item_id'] );
+    echo "</b>\r\n";
+}
+?>

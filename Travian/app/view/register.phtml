@@ -1,0 +1,171 @@
+<?php
+/**
+*
+* @ This file is created by Decodeby.US
+* @ deZender Public (PHP5 Decompiler)
+*
+* @	Version			:	1.0.0.0
+* @	Author			:	Ps2Gamer & Cyko
+* @	Release on		:	30.05.2011
+* @	Official site	:	http://decodeby.us
+*
+*/
+
+require_once( LANG_UI_PATH."register.php" );
+echo "<h1><img src=\"assets/x.gif\" class=\"anmelden\" alt=\"";
+echo LANGUI_REG_T1;
+echo "\"></h1> \r\n<h5><img src=\"assets/x.gif\" class=\"img_u05\" alt=\"";
+echo LANGUI_REG_T2;
+echo "\"/></h5> \r\n\r\n";
+if ( !$this->success )
+{
+    echo "<p>";
+    echo LANGUI_REG_T3;
+    echo " <a href=\"manual.php\" target=\"_blank\">";
+    echo LANGUI_REG_T4;
+    echo "</a> ";
+    echo LANGUI_REG_T5;
+    echo ".</p> \r\n<form method=\"post\" action=\"register.php\"> \r\n<table cellpadding=\"1\" cellspacing=\"1\" id=\"sign_input\"> \r\n\t<tbody> \r\n\t\t<tr class=\"top\"> \r\n\t\t\t<th>";
+    echo LANGUI_REG_T6;
+    echo ":</td> \r\n\t\t\t<td><input class=\"text\" type=\"text\" name=\"name\" value=\"";
+    if ( isset( $_POST['name'] ) )
+    {
+        echo htmlspecialchars( trim( $_POST['name'] ) );
+    }
+    else if ( isset( $this->SNdata['user_name'] ) )
+    {
+        echo $this->SNdata['user_name'];
+    }
+    echo "\" maxlength=\"15\" /> ";
+    echo "<s";
+    echo "pan class=\"error\">";
+    echo $this->err[0];
+    echo "</span></td> \r\n\t\t</tr> \r\n\t\t<tr> \r\n\t\t\t<th>";
+    echo LANGUI_REG_T7;
+    echo "</th> \r\n\t\t\t<td><input class=\"text\" type=\"text\" name=\"email\" value=\"";
+    if ( isset( $_POST['email'] ) )
+    {
+        echo trim( $_POST['email'] );
+    }
+    else if ( isset( $this->SNdata['email'] ) )
+    {
+        echo $this->SNdata['email'];
+    }
+    echo "\" maxlength=\"40\" /> ";
+    echo "<s";
+    echo "pan class=\"error\">";
+    echo $this->err[1];
+    echo "</span></td> \r\n\t\t</tr> \r\n\t\t<tr class=\"btm\">\r\n\t\t\t<th>";
+    echo LANGUI_REG_T8;
+    echo "</th>\r\n\t\t\t<td><input class=\"text\" type=\"password\" name=\"pwd\" value=\"";
+    if ( isset( $_POST['pwd'] ) )
+    {
+        echo trim( $_POST['pwd'] );
+    }
+    echo "\" maxlength=\"20\" /> ";
+    echo "<s";
+    echo "pan class=\"error\">";
+    echo $this->err[2];
+    echo "</span></td> \r\n\t\t</tr> \r\n\t</tbody> \r\n</table> \r\n\r\n<table cellpadding=\"1\" cellspacing=\"1\" id=\"sign_select\"> \r\n\t<tbody> \r\n\t\t<tr class=\"top\"> \r\n\t\t\t<th><img src=\"assets/x.gif\" class=\"img_u06\" alt=\"";
+    echo LANGUI_REG_T9;
+    echo "\"></th> \r\n\t\t\t<th colspan=\"2\"><img src=\"assets/x.gif\" class=\"img_u07\" alt=\"";
+    echo LANGUI_REG_T10;
+    echo "\"></th> \r\n\t\t</tr> \r\n\t\t\r\n\t\t<tr> \r\n\t\t\t<td class=\"nat\"><label><input class=\"radio\" type=\"radio\" name=\"tid\" value=\"6\" ";
+    if ( isset( $_POST['tid'] ) && $_POST['tid'] == 6 )
+    {
+        echo "checked=\"checked\"";
+    }
+    echo ">&nbsp;";
+    echo tribe_6;
+    echo "</label></td> \r\n\t\t\t<td class=\"pos1\"><label><input class=\"radio\" type=\"radio\" name=\"kid\" value=\"0\"  ";
+    if ( !isset( $_POST['kid'] ) || $_POST['kid'] == 0 )
+    {
+        echo "checked=\"checked\"";
+    }
+    echo ">&nbsp;";
+    echo LANGUI_REG_T11;
+    echo "</label></td> \r\n\t\t\t<td class=\"pos2\">&nbsp;</td> \r\n\t\t</tr> \r\n\r\n\t\t\r\n\t\t<tr> \r\n\t\t\t<td class=\"nat\"><label><input class=\"radio\" type=\"radio\" disabled=disabled name=\"tid\" value=\"7\" ";
+    if ( isset( $_POST['tid'] ) && $_POST['tid'] == 7 )
+    {
+        echo "checked=\"checked\"";
+    }
+    echo ">&nbsp;";
+    echo "<font color='gray'>".tribe_7."</font>";
+    echo "</label></td> \r\n\t\t\t<td><label><input class=\"radio\" type=\"radio\" name=\"kid\" value=\"1\" ";
+    if ( isset( $_POST['kid'] ) && $_POST['kid'] == 1 )
+    {
+        echo "checked=\"checked\"";
+    }
+    echo ">&nbsp;";
+    echo LANGUI_REG_T12;
+    echo "</label></td> \r\n\t\t\t<td><label><input class=\"radio\" type=\"radio\" name=\"kid\" value=\"2\" ";
+    if ( isset( $_POST['kid'] ) && $_POST['kid'] == 2 )
+    {
+        echo "checked=\"checked\"";
+    }
+    echo ">&nbsp;";
+    echo LANGUI_REG_T13;
+    echo "</label></td> \r\n\t\t</tr> \r\n\t\t<tr> \r\n\t\t\t<td><label><input class=\"radio\" type=\"radio\" name=\"tid\" value=\"2\" ";
+    if ( isset( $_POST['tid'] ) && $_POST['tid'] == 2 )
+    {
+        echo "checked=\"checked\"";
+    }
+    echo ">&nbsp;";
+    echo tribe_2;
+    echo "</label></td> \r\n\t\t\t<td><label><input class=\"radio\" type=\"radio\" name=\"kid\" value=\"3\" ";
+    if ( isset( $_POST['kid'] ) && $_POST['kid'] == 3 )
+    {
+        echo "checked=\"checked\"";
+    }
+    echo ">&nbsp;";
+    echo LANGUI_REG_T14;
+    echo "</label></td> \r\n\t\t\t<td><label><input class=\"radio\" type=\"radio\" name=\"kid\" value=\"4\" ";
+    if ( isset( $_POST['kid'] ) && $_POST['kid'] == 4 )
+    {
+        echo "checked=\"checked\"";
+    }
+    echo ">&nbsp;";
+    echo LANGUI_REG_T15;
+    echo "</label></td> \r\n\t\t</tr> \r\n\t\t<tr>\r\n\t\t\t<td><label><input class=\"radio\" type=\"radio\" name=\"tid\" value=\"3\" ";
+    if ( isset( $_POST['tid'] ) && $_POST['tid'] == 3 )
+    {
+        echo "checked=\"checked\"";
+    }
+    echo ">&nbsp;";
+    echo tribe_3;
+    echo "</label></td> \r\n\t\t\t<td rowspan=\"2\"></td> \r\n\t\t</tr>\r\n\t\t<tr class=\"btm\"> \r\n\t\t\t<td><label><input class=\"radio\" type=\"radio\" name=\"tid\" value=\"1\" ";
+    if ( isset( $_POST['tid'] ) && $_POST['tid'] == 1 )
+    {
+        echo "checked=\"checked\"";
+    }
+    echo ">&nbsp;";
+    echo tribe_1;
+    echo "</label></td> \r\n\t\t\t<td rowspan=\"2\"></td> \r\n\t\t</tr>\t\t\r\n\t</tbody> \r\n</table> \r\n\r\n<ul class=\"important\">";
+    echo $this->err[3];
+    echo "</ul> \r\n<p class=\"btn\"><input type=\"image\" value=\"anmelden\" name=\"s1\" id=\"btn_signup\" class=\"dynamic_img\" src=\"assets/x.gif\" alt=\"";
+    echo LANGUI_REG_T16;
+    echo "\"/></p>\r\n</form> \r\n\r\n<p class=\"info\">";
+    echo LANGUI_REG_T17;
+    echo "</p>\r\n";
+}
+else
+{
+    echo "<p>\r\n";
+    echo LANGUI_REG_T18;
+    echo " <b>";
+    if ( isset( $_POST['name'] ) )
+    {
+        echo trim( $_POST['name'] );
+    }
+    echo "</b> <br><br>\r\n";
+    echo LANGUI_REG_T19;
+    echo ": ";
+    echo "<s";
+    echo "pan class=\"important\">";
+    if ( isset( $_POST['email'] ) )
+    {
+        echo trim( $_POST['email'] );
+    }
+    echo "</span>\r\n</p>\r\n";
+}
+?>

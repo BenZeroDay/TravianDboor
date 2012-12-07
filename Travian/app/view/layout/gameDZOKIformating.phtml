@@ -1,0 +1,336 @@
+<?php
+/**
+*
+* @ This file is property of TravianX
+* @ deZender Public (PHP5 Decompiler)
+*
+* @ Coded by        :   Unknown team
+* @ Decoded by      :   Advocaite
+* @ Reformated by   :   Dzoki
+* @ Official site   :   http://delviewtravian.com
+*
+*/
+
+    require_once( LANG_UI_PATH."game.php" );
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title><?=$this->appConfig['page'][$this->appConfig['system']['lang']."_title"];?>
+    </title>
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta http-equiv="content-type" content="text/html; charset=us-ascii" />
+    <meta content="&lt;?=$this-&gt;appConfig['page']['meta-tag'];?&gt;" name="description" />
+    <meta content="&lt;?=$this-&gt;appConfig['page']['meta-tag'];?&gt;" name="keywords" />
+    <link href="assets/default/lang/&lt;?=$this-&gt;appConfig['system']['lang'];?&gt;/lang.css&lt;?=$this-&gt;getAssetVersion( );?&gt;" rel="stylesheet" type="text/css" />
+    <link href="assets/default/lang/&lt;?=$this-&gt;appConfig['system']['lang'];?&gt;/compact.css&lt;?=$this-&gt;getAssetVersion( );?&gt;" rel="stylesheet" type="text/css" />
+    <meta name="google-site-verification" content="vTjsRxnpRzHRJvw5E3uOiAA-jcGayHNOw_SEAD93-fc" />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    <script type="text/javascript">
+//<![CDATA[
+    var d3l=<?=($this->appConfig['system']['lang'] == "ar" ? "180" : "-600");?>
+    //]]>
+    </script>
+    <script src="assets/core.js&lt;?=$this-&gt;getAssetVersion( );?&gt;" type="text/javascript">
+</script>
+    <style type="text/css">
+/*<![CDATA[*/
+    span.c1 {color: #FF6F0F}
+    /*]]>*/
+    </style>
+</head>
+
+<body class="v35 webkit">
+    <div class="wrapper">
+        <img src="assets/x.gif" id="msfilter" alt="" name="msfilter" />
+
+        <div id="dynamic_header"></div>
+
+        <div id="header">
+            <div id="mtop"></div>
+        </div>
+    </div><?php if ( $this->player != NULL ) { ?><a href="village1.php" id="n1" accesskey="1" name="n1"><img src="assets/x.gif" title="&lt;?=LANGUI_GAME_ICO1;?&gt;" alt="&lt;?=LANGUI_GAME_ICO1;?&gt;" /></a> <a href="village2.php" id="n2" accesskey="2" name="n2"><img src="assets/x.gif" title="&lt;?=LANGUI_GAME_ICO2;?&gt;" alt="&lt;?=LANGUI_GAME_ICO2;?&gt;" /></a> <a href="map.php" id="n3" accesskey="3" name="n3"><img src="assets/x.gif" title="&lt;?=LANGUI_GAME_ICO3;?&gt;" alt="&lt;?=LANGUI_GAME_ICO3;?&gt;" /></a> <a href="statistics.php" id="n4" accesskey="4" name="n4"><img src="assets/x.gif" title="&lt;?=LANGUI_GAME_ICO4;?&gt;" alt="&lt;?=LANGUI_GAME_ICO4;?&gt;" /></a>
+
+    <div id="n5" class="i&lt;?=$this-&gt;reportMessageStatus;?&gt;">
+        <a class="reports" href="report.php" accesskey="5"><img src="assets/x.gif" class="l" title="&lt;?=LANGUI_GAME_ICO5;?&gt;" alt="&lt;?=LANGUI_GAME_ICO5;?&gt;" /></a> <a class="messages" href="msg.php" accesskey="6"><img src="assets/x.gif" class="r" title="&lt;?=LANGUI_GAME_ICO6;?&gt;" alt="&lt;?=LANGUI_GAME_ICO6;?&gt;" /></a>
+    </div><a href="plus.php?t=2" id="plus" name="plus"><img src="assets/x.gif" id="btn_plus" class="inactive" title="&lt;?=LANGUI_GAME_ICO7;?&gt;" alt="&lt;?=LANGUI_GAME_ICO7;?&gt;" name="btn_plus" /><b><span class="c1"><?=LANGUI_GAME_GOLD;?>
+    </span></b></a> <?php } ?>
+</body>
+</html>
+
+<div class="clear"></div></div></div> <div id="mid"><div id="side_navi"><a id="logo" href="#">
+<img  src="assets/x.gif" alt="<?=LANGUI_GAME_GNAME;?>" /></a>
+
+<?php
+
+if ($this->player != NULL){
+    echo "";
+    $_d = intval( date( "G" ) );
+    if ( 6 <= $_d && $_d <= 19 ){
+?>
+  <img class="time_of_day day" title="<?=LANGUI_GAME_MORNING;?>" alt="<?=LANGUI_GAME_MORNING;?>" src="assets/x.gif" />
+<?
+    }
+    else
+    {
+?>
+<img class="time_of_day night" title="<?=LANGUI_GAME_AFTERNOON;?>" alt="<?=LANGUI_GAME_AFTERNOON;?>" src="assets/x.gif" />
+<?
+    }
+}
+ 	require_once( MODEL_PATH."index.php" );
+	$m1 = new IndexModel( );
+        $this->datastats = $m1->getIndexSummary( );
+?>
+
+<center><?=LANGUI_GAME_O1;?><br /><strong><?=LANGUI_GAME_O2;?>:</strong></td><td>
+<?=$this->datastats['players_count'];?></td></tr> <br /><tr><td><strong><?=LANGUI_GAME_O3;?>:</strong></td><td>
+<?=$this->datastats['active_players_count'];?></td></tr> <br /><tr><td><strong><?=LANGUI_GAME_O4;?>:</strong></td><td>
+<?=$this->datastats['online_players_count'];?></td></tr></center><?php $m1->dispose( );?><br /><p>
+<a href="index.php"><?=LANGUI_GAME_MENU1;?></a>
+<?
+if ( $this->player != NULL )
+{
+?>
+<a href="#" onclick="return showManual(0,0);"><?=LANGUI_GAME_MENU2;?></a><a href="profile.php"><?=LANGUI_GAME_MENU3;?>
+</a><a href="logout.php"><?=LANGUI_GAME_MENU4;?></a></p><p>
+<a href="<?=$this->appConfig['system']['forum_url'];?>" target="_blank"><?=LANGUI_GAME_T1;?>
+</a><a href="<?=$this->appConfig['system']['social_url'];?>" target="_blank"><?=LANGUI_GAME_T2;?>
+</a><a href="chat.php"><?=LANGUI_GAME_MENU12;?></a>
+<a href="snprofile.php?uid=<?=$this->player->playerId;?>"><?=LANGUI_GAME_T3;?></a>
+<a href="friends.php"><?=LANGUI_GAME_T4;?></a>        </p>        <p>
+
+<?php 
+
+if ( $this->data['active_plus_account'] )
+    {
+?>
+<p><a href="notes.php"><?=LANGUI_GAME_MENU5;?></a>
+<a href="links.php"><?=LANGUI_GAME_MENU6;?></a></p>
+<?php
+    }
+    echo "";
+    if ( $this->data['player_type'] == PLAYERTYPE_ADMIN )
+    {
+?>
+<p><a href="news.php"><?=LANGUI_GAME_MENU7;?></a>
+<a href="gnews.php"><?=LANGUI_GAME_MENU8;?></a>
+<a href="badwords.php"><?=LANGUI_GAME_MENU10;?></a>
+<a href="advertising.php"><?=LANGUI_GAME_MENU11;?></a>
+</p>
+<?php
+    }
+}
+?>
+
+echo "</p>";
+echo "<p><a href="plus.php "><b><font color="#FF6F0F">";
+echo LANGUI_GAME_MENU9;
+echo "</font></b></a></p>";
+
+if ( $this->player != NULL && $this->isPlayerInDeletionProgress( ) )
+{
+    echo "<p class="deltimer"><a href="profile.php?t=4">";
+    echo LANGUI_GAME_PLAYERDEL;
+    echo " ";
+    echo "<s";
+    echo "pan id="timer1">";
+    echo $this->getPlayerDeletionTime( );
+    echo "</span> ";
+    echo time_hour_lang;
+    echo "</a></p>";
+}
+echo "</div><div id="content" class="";
+echo $this->contentCssClass;
+echo "">";
+$this->printContent( );
+echo "</div><div id="side_info">";
+if ( $this->data['guide_quiz'] != GUIDE_QUIZ_COMPLETED && $this->player != NULL )
+{
+    echo "<div id="anm" style="width:118px; height:142px; visibility: hidden;"></div><div id="qge"><img onclick="showTask();" src="assets/x.gif" id="qgei" class="";
+    echo $this->getGuideQuizClassName( );
+    echo "" title="";
+    echo LANGUI_GAME_LMENU1;
+    echo "" alt="";
+    echo LANGUI_GAME_LMENU1;
+    echo ""></div>";
+}
+if ( $this->player != NULL )
+{
+    if ( 1 < sizeof( $this->playerVillages ) )
+    {
+        echo "<table cellpadding="1" cellspacing="1" id="vlist"><thead><tr><td colspan="3"><b>";
+        echo LANGUI_GAME_LMENU2;
+        echo ":</b></td></tr></thead><tbody>";
+        foreach ( $this->playerVillages as $vid => $pvillage )
+        {
+            echo "<tr><td class="dot";
+            if ( $vid == $this->data['selected_village_id'] )
+            {
+                echo "  hl";
+            }
+            echo "">●</td><td class="link"><div><a href="?vid=";
+            echo $vid.$this->villagesLinkPostfix;
+            echo "">";
+            echo $pvillage[2];
+            echo "</a></div></td><td class="aligned_coords"><div class="cox">(";
+            echo $pvillage[0];
+            echo "</div><div class="pi">|</div><div class="coy">";
+            echo $pvillage[1];
+            echo ")</div></td></tr>";
+        }
+        echo "</tbody></table>";
+    }
+    echo "";
+    if ( sizeof( $this->playerLinks ) && $this->data['active_plus_account'] )
+    {
+        echo "<table id="llist"><thead><tr><td colspan="2"><a href="links.php">";
+        echo LANGUI_GAME_LMENU3;
+        echo ":</a></td></tr></thead><tbody>";
+        foreach ( $this->playerLinks as $link )
+        {
+            echo "<tr><td class="dot">●</td><td class="link"><div><a href="";
+            echo htmlspecialchars( $link['linkHref'] );
+            echo """;
+            if ( !$link['linkSelfTarget'] )
+            {
+                echo " target="_blank"";
+            }
+            echo ">";
+            echo $link['linkName'];
+            echo "</a>";
+            if ( !$link['linkSelfTarget'] )
+            {
+                echo " <img class="external" src="assets/x.gif" alt="";
+                echo LANGUI_GAME_LMENU4;
+                echo "" title="";
+                echo LANGUI_GAME_LMENU4;
+                echo "">";
+            }
+            echo "</div></td></tr>";
+        }
+       
+        echo "</tbody></table>";
+    }
+    echo "    <div align="center" style="position: absolute; left: ";
+    echo $this->appConfig['system']['lang'] == "en" ? "1000" : "-850";
+    echo "px; top: 35px;">";
+    if ( 0 < sizeof( $this->banner ) )
+    {
+        if ( $this->banner['type'] == "image" )
+        {
+            echo "<a target="_blank" href="banner.php?url=".base64_encode( $this->banner['ID'] ).""> <img width="120" height="450" src="".$this->banner['image']."" border="0" title="".$this->banner['name'].""  alt="".$this->banner['name'].""></a> ";
+        }
+        else
+        {
+            echo "<embed width="120" height="450" onclick="window.location.href('banner.php?url=".base64_encode( $this->banner['ID'] )."')" title="".$this->banner['name']."" src="".$this->banner['image']."" />";
+        }
+    }
+    echo "</div>";
+}
+echo "</div><div class="clear"></div></div><div class="footer-stopper"></div><div class="clear"></div><div id="footer"><div id="mfoot"><div class="footer-menu">";
+require( VIEW_PATH."layout/footer.phtml" );
+echo "</div></div>    <div id="cfoot"></div></div></div>";
+if ( $this->player != NULL )
+{
+    echo "<div id="res"><div id="resWrap"><table cellpadding="1" cellspacing="1"><tbody><tr><td><img src="assets/x.gif" class="r1" alt="";
+    echo item_title_1;
+    echo "" title="";
+    echo item_title_1;
+    echo "" /></td><td id="l4" title="";
+    echo $this->resources[1]['calc_prod_rate'];
+    echo "">";
+    echo $this->resources[1]['current_value'];
+    echo "/";
+    echo $this->resources[1]['store_max_limit'];
+    echo "</td><td><img src="assets/x.gif" class="r2" alt="";
+    echo item_title_2;
+    echo "" title="";
+    echo item_title_2;
+    echo "" /></td><td id="l3" title="";
+    echo $this->resources[2]['calc_prod_rate'];
+    echo "">";
+    echo $this->resources[2]['current_value'];
+    echo "/";
+    echo $this->resources[2]['store_max_limit'];
+    echo "</td><td><img src="assets/x.gif" class="r3" alt="";
+    echo item_title_3;
+    echo "" title="";
+    echo item_title_3;
+    echo "" /></td><td id="l2" title="";
+    echo $this->resources[3]['calc_prod_rate'];
+    echo "">";
+    echo $this->resources[3]['current_value'];
+    echo "/";
+    echo $this->resources[3]['store_max_limit'];
+    echo "</td><td><img src="assets/x.gif" class="r4" alt="";
+    echo item_title_4;
+    echo "" title="";
+    echo item_title_4;
+    echo "" /></td><td id="l1" title="";
+    echo $this->resources[4]['calc_prod_rate'];
+    echo "">";
+    echo $this->resources[4]['current_value'];
+    echo "/";
+    echo $this->resources[4]['store_max_limit'];
+    echo "</td>";
+    if ( !$this->wrap )
+    {
+        echo "<td><img src="assets/x.gif" class="r5" alt="";
+        echo LANGUI_GAME_CROPCONSUM;
+        echo "" title="";
+        echo LANGUI_GAME_CROPCONSUM;
+        echo "" /></td><td>";
+        echo $this->data['crop_consumption'];
+        echo "/";
+        echo $this->data['crop_consumption'] + $this->resources[4]['calc_prod_rate'];
+        echo "</td>";
+    }
+    else
+    {
+        echo "</tr><tr><td colspan="6"></td><td><img src="assets/x.gif" class="r5" alt="";
+        echo LANGUI_GAME_CROPCONSUM;
+        echo "" title="";
+        echo LANGUI_GAME_CROPCONSUM;
+        echo ""></td><td>";
+        echo $this->data['crop_consumption'];
+        echo "/";
+        echo $this->data['crop_consumption'] + $this->resources[4]['calc_prod_rate'];
+        echo "</td>";
+    }
+    echo "</tr></tbody></table></div></div>";
+    $sec = explode( " ", microtime( ) );
+    $usec = explode( " ", microtime( ) );
+    list( $usec, $sec ) = $usec;    
+    echo "<div id="stime"><div id="ltime"><div id="ltimeWrap">";
+    echo LANGUI_GAME_CALCMS;
+    echo " <b>";
+    echo ceil( ( ( double )$sec + ( double )$usec - $GLOBALS['__scriptStart'] ) * 1000 );
+    echo "</b> ms<br />";
+    echo LANGUI_GAME_SRVTIME;
+    echo " ";
+    echo "<s";
+    echo "pan id="timer2" class="b">";
+    echo date( "G:i:s" );
+    echo "</span></div></div></div>";
+}
+echo " <div id="ce"></div></body>";
+echo "<s";
+echo "cript type="text/javascript">init();";
+if ( $this->player != NULL && !$this->player->isSpy && $this->data['guide_quiz'] == GUIDE_QUIZ_NOTSTARTED )
+{
+    echo "showTask();";
+}
+	
+echo "</script>";
+
+echo"</html>";
+?>
+
+

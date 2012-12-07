@@ -1,0 +1,61 @@
+<?php
+/**
+*
+* @ This file is created by Decodeby.US
+* @ deZender Public (PHP5 Decompiler)
+*
+* @	Version			:	1.0.0.0
+* @	Author			:	Ps2Gamer & Cyko
+* @	Release on		:	30.05.2011
+* @	Official site	:	http://decodeby.us
+*
+*/
+
+require_once( LANG_UI_PATH."form.php" );
+echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html>\r\n<head>\r\n\t<title>";
+echo $this->appConfig['page'][$this->appConfig['system']['lang']."_title"];
+echo "</title>\r\n\t<meta http-equiv=\"cache-control\" content=\"max-age=0\" />\r\n\t<meta http-equiv=\"pragma\" content=\"no-cache\" />\r\n\t<meta http-equiv=\"expires\" content=\"0\" />\r\n\t<meta http-equiv=\"imagetoolbar\" content=\"no\" />\r\n\t<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />\r\n\t<meta content=\"";
+echo $this->appConfig['page']['meta-tag'];
+echo "\" name=\"description\"> \r\n\t<meta content=\"";
+echo $this->appConfig['page']['meta-tag'];
+echo "\" name=\"keywords\">\r\n\t<link href=\"assets/default/lang/";
+echo $this->appConfig['system']['lang'];
+echo "/lang.css";
+echo $this->getAssetVersion( );
+echo "\" rel=\"stylesheet\" type=\"text/css\" />\r\n\t<link href=\"assets/default/lang/";
+echo $this->appConfig['system']['lang'];
+echo "/compact.css";
+echo $this->getAssetVersion( );
+echo "\" rel=\"stylesheet\" type=\"text/css\" />\r\n\t<link rel=\"shortcut icon\" href=\"assets/favicon.ico\" type=\"image/x-icon\" />\r\n\t";
+echo "<s";
+echo "cript type=\"text/javascript\">var d3l=";
+echo $this->appConfig['system']['lang'] == "ar" ? "180" : "-600";
+echo ";</script>\r\n\t";
+echo "<s";
+echo "cript src=\"assets/core.js";
+echo $this->getAssetVersion( );
+echo "\" type=\"text/javascript\"></script>\r\n</head>\r\n<body class=\"v35 webkit\">\r\n<div class=\"wrapper\">\r\n<img src=\"assets/x.gif\" id=\"msfilter\" alt=\"\" />\r\n<div id=\"dynamic_header\"></div>\r\n\r\n<div id=\"header\">\r\n\t<div id=\"mtop\">\r\n\t\t<div class=\"clear\"></div>\r\n\t</div>\r\n</div>\r\n \r\n<div id=\"mid\">\r\n\t<div id=\"side_navi\">\r\n\t\t<a id=\"logo\" href=\"#\"><img  src=\"assets/x.gif\" alt=\"";
+echo LANGUI_FORM_GNAME;
+echo "\" /></a>\r\n\t\t<p>\r\n\t\t\t<a href=\"index.php\">";
+echo LANGUI_FORM_MAIN;
+echo "</a>\r\n\t\t\t<a href=\"#\" onclick=\"return showManual(0,0);\">";
+echo LANGUI_FORM_HELP;
+echo "</a>\r\n\t\t\t<a href=\"register.php\">";
+echo LANGUI_FORM_REG;
+echo "</a>\r\n\t\t</p>\r\n\t</div>\r\n\t<div id=\"content\" class=\"";
+echo $this->contentCssClass;
+echo "\">";
+$this->printContent( );
+echo "</div>\r\n\t<div id=\"side_info\">";
+if ( trim( $this->newsText ) != "" )
+{
+    echo "<div class=\"news\"><h2>".LANGUI_FORM_NEWS."</h2><p>";
+    echo $this->newsText;
+    echo "</p><div class=\"clear\"></div></div>";
+}
+echo "</div>\r\n\t<div class=\"clear\"></div>\r\n</div>\r\n\r\n<div class=\"footer-stopper\"></div>\r\n<div class=\"clear\"></div>\r\n<div id=\"footer\">\r\n\t<div id=\"mfoot\"><div class=\"footer-menu\">";
+require( VIEW_PATH."layout/footer.phtml" );
+echo "</div></div>\r\n    <div id=\"cfoot\"></div>\r\n</div>\r\n</div>\r\n<div id=\"ce\"></div>\r\n</body>\r\n";
+echo "<s";
+echo "cript type=\"text/javascript\">init();</script>\r\n</html>";
+?>

@@ -1,0 +1,381 @@
+<?php
+/**
+*
+* @ This file is created by Decodeby.US
+* @ deZender Public (PHP5 Decompiler)
+*
+* @	Version			:	1.0.0.0
+* @	Author			:	Ps2Gamer & Cyko
+* @	Release on		:	30.05.2011
+* @	Official site	:	http://decodeby.us
+*
+*/
+
+require_once( LANG_UI_PATH."village1.php" );
+echo "<h1>";
+echo $this->data['village_name'];
+echo "<br>";
+if ( $this->data['allegiance_percent'] < 100 )
+{
+    echo "<div id=\"loyality\" class=\"";
+    echo $this->data['allegiance_percent'] <= 60 ? "re" : "gr";
+    echo "\">";
+    echo LANGUI_VIL1_T1;
+    echo " ";
+    echo $this->data['allegiance_percent'];
+    echo "%</div>";
+}
+echo "</h1>\r\r<map name=\"rx\" id=\"rx\">\r<area href=\"build.php?id=1\" coords=\"101,33,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 1 );
+echo ">\r<area href=\"build.php?id=2\" coords=\"165,32,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 2 );
+echo ">\r<area href=\"build.php?id=3\" coords=\"224,46,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 3 );
+echo ">\r<area href=\"build.php?id=4\" coords=\"46,63,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 4 );
+echo ">\r<area href=\"build.php?id=5\" coords=\"138,74,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 5 );
+echo ">\r<area href=\"build.php?id=6\" coords=\"203,94,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 6 );
+echo ">\r<area href=\"build.php?id=7\" coords=\"262,86,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 7 );
+echo ">\r<area href=\"build.php?id=8\" coords=\"31,117,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 8 );
+echo ">\r<area href=\"build.php?id=9\" coords=\"83,110,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 9 );
+echo ">\r<area href=\"build.php?id=10\" coords=\"214,142,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 10 );
+echo ">\r<area href=\"build.php?id=11\" coords=\"269,146,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 11 );
+echo ">\r<area href=\"build.php?id=12\" coords=\"42,171,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 12 );
+echo ">\r<area href=\"build.php?id=13\" coords=\"93,164,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 13 );
+echo ">\r<area href=\"build.php?id=14\" coords=\"160,184,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 14 );
+echo ">\r<area href=\"build.php?id=15\" coords=\"239,199,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 15 );
+echo ">\r<area href=\"build.php?id=16\" coords=\"87,217,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 16 );
+echo ">\r<area href=\"build.php?id=17\" coords=\"140,231,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 17 );
+echo ">\r<area href=\"build.php?id=18\" coords=\"190,232,28\" shape=\"circle\" ";
+echo $this->getBuildingTitle( 18 );
+echo ">\r<area href=\"village2.php\" coords=\"144,131,36\" shape=\"circle\" title=\"";
+echo LANGUI_VIL1_T2;
+echo "\" alt=\"";
+echo LANGUI_VIL1_T2;
+echo "\">\r</map>\r\r<div id=\"village_map\" class=\"f";
+echo $this->data['field_maps_id'];
+echo "\">\r";
+foreach ( $this->buildings as $id => $build )
+{
+    if ( 19 <= $id )
+    {
+        break;
+    }
+    if ( 0 < $build['level'] )
+    {
+        echo "<img src=\"assets/x.gif\" class=\"reslevel rf".$id." level".$build['level']."\" alt=\"".$this->getBuildingName( $id )."\">";
+    }
+}
+echo "<img id=\"resfeld\" usemap=\"#rx\" src=\"assets/x.gif\" alt=\"\">\r</div>\r\r<div id=\"map_details\">\r\t";
+if ( 0 < $this->queueModel->tasksInQueue['war_troops_summary']['total_number'] )
+{
+    echo "\t<table id=\"movements\" cellpadding=\"1\" cellspacing=\"1\">\r\t\t<thead><tr><th colspan=\"3\">";
+    echo LANGUI_VIL1_T3;
+    echo ":</th></tr></thead>\r\t\t<tbody>\r\t\t\t";
+    $war = $this->queueModel->tasksInQueue['war_troops_summary']['to_me']['attacks'];
+    if ( 0 < $war['number'] )
+    {
+        echo "\t\t\t<tr>\r\t\t\t\t<td class=\"typ\"><a href=\"build.php?id=39\"><img src=\"assets/x.gif\" class=\"att1\" alt=\"";
+        echo LANGUI_VIL1_T4;
+        echo "\" title=\"";
+        echo LANGUI_VIL1_T4;
+        echo "\"></a>";
+        echo "<s";
+        echo "pan class=\"a2\">»</span></td>\r\t\t\t\t<td><div class=\"mov\">";
+        echo "<s";
+        echo "pan class=\"a2\">";
+        echo $war['number'];
+        echo "&nbsp;";
+        echo LANGUI_VIL1_T5;
+        echo "</span></div><div class=\"dur_r\">";
+        echo text_in_lang;
+        echo "&nbsp;";
+        echo "<s";
+        echo "pan id=\"timer1\">";
+        echo WebHelper::secondstostring( $war['min_time'] );
+        echo "</span>&nbsp;";
+        echo time_hour_lang;
+        echo "</div></td>\r\t\t\t</tr>\r\t\t\t";
+    }
+    echo "\t\t\t";
+    $war = $this->queueModel->tasksInQueue['war_troops_summary']['to_me']['reinforce'];
+    if ( 0 < $war['number'] )
+    {
+        echo "\t\t\t<tr>\r\t\t\t\t<td class=\"typ\"><a href=\"build.php?id=39\"><img src=\"assets/x.gif\" class=\"def1\" alt=\"";
+        echo LANGUI_VIL1_T6;
+        echo "\" title=\"";
+        echo LANGUI_VIL1_T6;
+        echo "\"></a>";
+        echo "<s";
+        echo "pan class=\"d1\">»</span></td>\r\t\t\t\t<td><div class=\"mov\">";
+        echo "<s";
+        echo "pan class=\"d1\">";
+        echo $war['number'];
+        echo "&nbsp;";
+        echo LANGUI_VIL1_T7;
+        echo "</span></div><div class=\"dur_r\">";
+        echo text_in_lang;
+        echo "&nbsp;";
+        echo "<s";
+        echo "pan id=\"timer1\">";
+        echo WebHelper::secondstostring( $war['min_time'] );
+        echo "</span>&nbsp;";
+        echo time_hour_lang;
+        echo "</div></td>\r\t\t\t</tr>\r\t\t\t";
+    }
+    echo "\r\t\t\t";
+    $war = $this->queueModel->tasksInQueue['war_troops_summary']['from_me']['attacks'];
+    if ( 0 < $war['number'] )
+    {
+        echo "\t\t\t<tr>\r\t\t\t\t<td class=\"typ\"><a href=\"build.php?id=39\"><img src=\"assets/x.gif\" class=\"att2\" alt=\"";
+        echo LANGUI_VIL1_T8;
+        echo "\" title=\"";
+        echo LANGUI_VIL1_T8;
+        echo "\"></a>";
+        echo "<s";
+        echo "pan class=\"a2\">«</span></td>\r\t\t\t\t<td><div class=\"mov\">";
+        echo "<s";
+        echo "pan class=\"a2\">";
+        echo $war['number'];
+        echo "&nbsp;";
+        echo LANGUI_VIL1_T5;
+        echo "</span></div><div class=\"dur_r\">";
+        echo text_in_lang;
+        echo "&nbsp;";
+        echo "<s";
+        echo "pan id=\"timer1\">";
+        echo WebHelper::secondstostring( $war['min_time'] );
+        echo "</span>&nbsp;";
+        echo time_hour_lang;
+        echo "</div></td>\r\t\t\t</tr>\r\t\t\t";
+    }
+    echo "\t\t\t";
+    $war = $this->queueModel->tasksInQueue['war_troops_summary']['from_me']['reinforce'];
+    if ( 0 < $war['number'] )
+    {
+        echo "\t\t\t<tr>\r\t\t\t\t<td class=\"typ\"><a href=\"build.php?id=39\"><img src=\"assets/x.gif\" class=\"def2\" alt=\"";
+        echo LANGUI_VIL1_T9;
+        echo "\" title=\"";
+        echo LANGUI_VIL1_T9;
+        echo "\"></a>";
+        echo "<s";
+        echo "pan class=\"d2\">«</span></td>\r\t\t\t\t<td><div class=\"mov\">";
+        echo "<s";
+        echo "pan class=\"d2\">";
+        echo $war['number'];
+        echo "&nbsp;";
+        echo LANGUI_VIL1_T7;
+        echo "</span></div><div class=\"dur_r\">";
+        echo text_in_lang;
+        echo "&nbsp;";
+        echo "<s";
+        echo "pan id=\"timer1\">";
+        echo WebHelper::secondstostring( $war['min_time'] );
+        echo "</span>&nbsp;";
+        echo time_hour_lang;
+        echo "</div></td>\r\t\t\t</tr>\r\t\t\t";
+    }
+    echo "\t\t\t\r\t\t\t";
+    $war = $this->queueModel->tasksInQueue['war_troops_summary']['to_my_oasis']['attacks'];
+    if ( 0 < $war['number'] )
+    {
+        echo "\t\t\t<tr>\r\t\t\t\t<td class=\"typ\"><a href=\"build.php?id=39\"><img src=\"assets/x.gif\" class=\"att3\" alt=\"";
+        echo LANGUI_VIL1_T10;
+        echo "\" title=\"";
+        echo LANGUI_VIL1_T10;
+        echo "\"></a>";
+        echo "<s";
+        echo "pan class=\"a3\">»</span></td>\r\t\t\t\t<td><div class=\"mov\">";
+        echo "<s";
+        echo "pan class=\"a3\">";
+        echo $war['number'];
+        echo "&nbsp;";
+        echo LANGUI_VIL1_T5;
+        echo "</span></div><div class=\"dur_r\">";
+        echo text_in_lang;
+        echo "&nbsp;";
+        echo "<s";
+        echo "pan id=\"timer1\">";
+        echo WebHelper::secondstostring( $war['min_time'] );
+        echo "</span>&nbsp;";
+        echo time_hour_lang;
+        echo "</div></td>\r\t\t\t</tr>\r\t\t\t";
+    }
+    echo "\t\t\t";
+    $war = $this->queueModel->tasksInQueue['war_troops_summary']['to_my_oasis']['reinforce'];
+    if ( 0 < $war['number'] )
+    {
+        echo "\t\t\t<tr>\r\t\t\t\t<td class=\"typ\"><a href=\"build.php?id=39\"><img src=\"assets/x.gif\" class=\"def3\" alt=\"";
+        echo LANGUI_VIL1_T11;
+        echo "\" title=\"";
+        echo LANGUI_VIL1_T11;
+        echo "\"></a>";
+        echo "<s";
+        echo "pan class=\"d3\">»</span></td>\r\t\t\t\t<td><div class=\"mov\">";
+        echo "<s";
+        echo "pan class=\"d3\">";
+        echo $war['number'];
+        echo "&nbsp;";
+        echo LANGUI_VIL1_T7;
+        echo "</span></div><div class=\"dur_r\">";
+        echo text_in_lang;
+        echo "&nbsp;";
+        echo "<s";
+        echo "pan id=\"timer1\">";
+        echo WebHelper::secondstostring( $war['min_time'] );
+        echo "</span>&nbsp;";
+        echo time_hour_lang;
+        echo "</div></td>\r\t\t\t</tr>\r\t\t\t";
+    }
+    echo "\t\t</tbody>\r\t</table>\r\t";
+}
+echo "\r\t<table id=\"production\" cellpadding=\"1\" cellspacing=\"1\">\r\t\t<thead>\r\t\t\t<tr><th colspan=\"4\">";
+echo LANGUI_VIL1_T12;
+echo ":</th></tr>\r\t\t</thead>\r\t\t<tbody>\t\r\t\t\t<tr>\r\t\t\t\t<td class=\"ico\"><img class=\"r1\" src=\"assets/x.gif\" alt=\"";
+echo item_title_1;
+echo "\" title=\"";
+echo item_title_1;
+echo "\"></td>\r\t\t\t\t<td class=\"res\">";
+echo item_title_1;
+echo ":</td>\r\t\t\t\t<td class=\"num\">";
+echo $this->resources[1]['calc_prod_rate'];
+echo "</td>\r\t\t\t\t<td class=\"per\">";
+echo LANGUI_VIL1_T13;
+echo "</td>\r\t\t\t</tr>\r\t\t\t<tr>\r\t\t\t\t<td class=\"ico\"><img class=\"r2\" src=\"assets/x.gif\" alt=\"";
+echo item_title_2;
+echo "\" title=\"";
+echo item_title_2;
+echo "\"></td>\r\t\t\t\t<td class=\"res\">";
+echo item_title_2;
+echo ":</td>\r\t\t\t\t<td class=\"num\">";
+echo $this->resources[2]['calc_prod_rate'];
+echo "</td>\r\t\t\t\t<td class=\"per\">";
+echo LANGUI_VIL1_T13;
+echo "</td>\r\t\t\t</tr>\t\t\t\t\r\t\t\t<tr>\r\t\t\t\t<td class=\"ico\"><img class=\"r3\" src=\"assets/x.gif\" alt=\"";
+echo item_title_3;
+echo "\" title=\"";
+echo item_title_3;
+echo "\"></td>\r\t\t\t\t<td class=\"res\">";
+echo item_title_3;
+echo ":</td>\r\t\t\t\t<td class=\"num\">";
+echo $this->resources[3]['calc_prod_rate'];
+echo "</td>\r\t\t\t\t<td class=\"per\">";
+echo LANGUI_VIL1_T13;
+echo "</td>\r\t\t\t</tr>\t\r\t\t\t<tr>\r\t\t\t\t<td class=\"ico\"><img class=\"r4\" src=\"assets/x.gif\" alt=\"";
+echo item_title_4;
+echo "\" title=\"";
+echo item_title_4;
+echo "\"></td>\r\t\t\t\t<td class=\"res\">";
+echo item_title_4;
+echo ":</td>\r\t\t\t\t<td class=\"num\">";
+echo $this->resources[4]['calc_prod_rate'];
+echo "</td>\r\t\t\t\t<td class=\"per\">";
+echo LANGUI_VIL1_T13;
+echo "</td>\r\t\t\t</tr>\r\t\t</tbody>\t\r\t</table>\r\r\t<table id=\"troops\" cellpadding=\"1\" cellspacing=\"1\">\r\t\t<thead>\r\t\t\t<tr><th colspan=\"3\">";
+echo LANGUI_VIL1_T14;
+echo ":</th></tr>\r\t\t</thead>\r\t\t<tbody>\r";
+if ( $this->heroCount == 0 && sizeof( $this->troops ) == 0 )
+{
+    echo "\t\t\t<tr><td>";
+    echo LANGUI_VIL1_T15;
+    echo "</td></tr>\r";
+}
+else
+{
+    if ( 0 < $this->heroCount )
+    {
+        echo "\t\t\t<tr>\r\t\t\t\t<td class=\"ico\"><a href=\"build.php?id=39\"><img class=\"unit uhero\" src=\"assets/x.gif\" alt=\"";
+        echo troop_hero;
+        echo "\" title=\"";
+        echo troop_hero;
+        echo "\"></a></td>\r\t\t\t\t<td class=\"num\">";
+        echo $this->heroCount;
+        echo "</td>\r\t\t\t\t<td class=\"un\">";
+        echo troop_hero;
+        echo "</td>\r\t\t\t</tr>\r";
+    }
+    foreach ( $this->troops as $k => $v )
+    {
+        $troopName = htmlspecialchars( constant( "troop_".$k ) );
+        echo "\t\t\t<tr>\r\t\t\t\t<td class=\"ico\"><a href=\"build.php?id=39\"><img class=\"unit u";
+        echo $k;
+        echo "\" src=\"assets/x.gif\" alt=\"";
+        echo $troopName;
+        echo "\" title=\"";
+        echo $troopName;
+        echo "\"></a></td>\r\t\t\t\t<td class=\"num\">";
+        echo $v;
+        echo "</td>\r\t\t\t\t<td class=\"un\">";
+        echo $troopName;
+        echo "</td>\r\t\t\t</tr>\r";
+    }
+}
+echo "\t\t</tbody>\r\t</table>\r</div>\r";
+if ( isset( $this->queueModel->tasksInQueue[QS_BUILD_CREATEUPGRADE] ) )
+{
+    echo "<table cellpadding=\"1\" cellspacing=\"1\" id=\"building_contract\">\r\t<thead>\r\t\t<tr>\r\t\t\t<th colspan=\"3\">\r\t\t\t\t";
+    echo LANGUI_VIL1_T16;
+    echo ": \r\t\t\t\t";
+    if ( !$this->data['is_special_village'] && $this->gameMetadata['plusTable'][5]['cost'] <= $this->data['gold_num'] )
+    {
+        echo "\t\t\t\t<a href=\"village1.php?bfs&k=";
+        echo $this->data['update_key'];
+        echo "\" title=\"";
+        echo LANGUI_VIL1_T18;
+        echo "\">\r\t\t\t\t<img class=\"clock\" alt=\"";
+        echo LANGUI_VIL1_T18;
+        echo "\" src=\"assets/x.gif\"></a>\r\t\t\t\t";
+    }
+    echo "\t\t\t</th>\r\t\t</tr>\r\t</thead>\r\t<tbody>\r\t\t";
+    $tmpBuilding = array( );
+    foreach ( $this->queueModel->tasksInQueue[QS_BUILD_CREATEUPGRADE] as $qtask )
+    {
+        $index = $qtask['proc_params'];
+        $itemId = $qtask['building_id'];
+        if ( !isset( $tmpBuilding[$index] ) )
+        {
+            $tmpBuilding[$index] = 0;
+        }
+        ++$tmpBuilding[$index];
+        $level = $this->buildings[$index]['level'] + $tmpBuilding[$index];
+        echo "\t\t<tr>\r\t\t\t<td class=\"ico\"><a href=\"?id=";
+        echo $qtask['id'];
+        echo "&d&k=";
+        echo $this->data['update_key'];
+        echo "\"><img src=\"assets/x.gif\" class=\"del\" title=\"";
+        echo LANGUI_VIL1_T17;
+        echo "\" alt=\"";
+        echo LANGUI_VIL1_T17;
+        echo "\"></a></td>\r\t\t\t<td>";
+        echo constant( "item_".$itemId );
+        echo " (";
+        echo level_lang;
+        echo " ";
+        echo $level;
+        echo ")</td>\r\t\t\t<td>";
+        echo time_remain_lang;
+        echo " ";
+        echo "<s";
+        echo "pan id=\"timer1\">";
+        echo WebHelper::secondstostring( $qtask['remainingSeconds'] );
+        echo "</span> ";
+        echo time_hour_lang;
+        echo "</td>\r\t\t</tr>\r\t\t";
+    }
+    unset( $tmpBuilding );
+    echo "\t</tbody>\r</table>\r";
+}
+?>

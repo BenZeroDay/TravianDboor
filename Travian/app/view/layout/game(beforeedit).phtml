@@ -1,0 +1,668 @@
+<?php
+// DECODED BY MR.PHP
+// EMAIL : MR.PHP-MAJED@HOTMAIL.COM
+// WWW.KRAVIAN.NET
+
+require_once( LANG_UI_PATH."game.php" );
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>
+<?php echo $this->appConfig['page'][$this->appConfig['system']['lang']."_title"];
+?>
+</title>
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta content="
+<?php echo $this->appConfig['page']['meta-tag'];
+?>
+" name="description"> <meta content="
+<?php echo $this->appConfig['page']['meta-tag'];
+?>
+" name="keywords">
+<link href="assets/default/lang/
+<?php echo $this->appConfig['system']['lang'];
+?>
+/lang.css
+<?php echo $this->getAssetVersion( );
+?>
+" rel="stylesheet" type="text/css" />
+<link href="assets/default/lang/
+<?php echo $this->appConfig['system']['lang'];
+?>
+/compact.css
+<?php echo $this->getAssetVersion( );
+?>
+" rel="stylesheet" type="text/css" />
+<meta name="google-site-verification" content="vTjsRxnpRzHRJvw5E3uOiAA-jcGayHNOw_SEAD93-fc" />
+<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+<script type="text/javascript">var d3l=<?php echo $this->appConfig['system']['lang'] == "ar" ? "180" : "-600"; ?>
+</script>
+<script src="assets/core.js<?php echo $this->getAssetVersion( ); ?>" type="text/javascript">
+</script>
+</head>
+<body class="v35 webkit">
+<div class="wrapper">
+<img src="assets/x.gif" id="msfilter" alt="" />
+<div id="dynamic_header">
+</div>
+<div id="header">
+<div id="mtop">
+<?php
+if ( $this->player != NULL )
+{
+ ?>
+<a href="village1.php" id="n1" accesskey="1">
+<img src="assets/x.gif" title="<?php echo LANGUI_GAME_ICO1; ?>
+" alt="<?php echo LANGUI_GAME_ICO1; ?>" />
+</a>
+<a href="village2.php" id="n2" accesskey="2">
+<img src="assets/x.gif" title="<?php echo LANGUI_GAME_ICO2; ?>" alt="<?php echo LANGUI_GAME_ICO2;
+ ?>
+" />
+</a>
+<a href="map.php" id="n3" accesskey="3">
+<img src="assets/x.gif" title="<?php echo LANGUI_GAME_ICO3;
+ ?>" alt="<?php echo LANGUI_GAME_ICO3;
+ ?>" />
+</a>
+<a href="statistics.php" id="n4" accesskey="4">
+<img src="assets/x.gif" title="<?php echo LANGUI_GAME_ICO4;
+ ?>" alt="<?php echo LANGUI_GAME_ICO4;
+ ?>" />
+</a>
+<div id="n5" class="i<?php echo $this->reportMessageStatus; ?>
+">
+<a class="reports" href="report.php" accesskey="5">
+<img src="assets/x.gif" class="l" title="<?php echo LANGUI_GAME_ICO5;
+ ?>
+" alt="<?php echo LANGUI_GAME_ICO5;
+ ?>
+"/>
+</a>
+<a class="messages" href="msg.php" accesskey="6">
+<img src="assets/x.gif" class="r" title="<?php echo LANGUI_GAME_ICO6;
+ ?>
+" alt="<?php echo LANGUI_GAME_ICO6;
+ ?>
+" />
+</a>
+</div>
+<a href="plus.php" id="plus">
+<img src="assets/x.gif" id="btn_plus" class="inactive" title="<?php echo LANGUI_GAME_ICO7;
+ ?>
+" alt="<?php echo LANGUI_GAME_ICO7;
+ ?>
+" />
+<b>
+<font color="#FF6F0F">
+<?php echo LANGUI_GAME_GOLD;
+ ?>
+</font>
+</b>
+</a>
+<?php
+}
+?>
+<div class="clear">
+</div>
+</div>
+</div> <div id="mid">
+<div id="side_navi">
+<a id="logo" href="#">
+<img  src="assets/x.gif" alt="
+<?php echo LANGUI_GAME_GNAME;
+?>
+" />
+</a>
+<?php
+if ( $this->player != NULL )
+{
+ ?>
+
+<?php
+ $_d = intval( date( "G" ) );
+ if ( 6 <= $_d && $_d <= 19 )
+ {
+  ?>
+<img class="time_of_day day" title="
+<?php
+  echo LANGUI_GAME_MORNING;
+  ?>
+" alt="
+<?php
+  echo LANGUI_GAME_MORNING;
+  ?>
+" src="assets/x.gif" />
+<?php
+ }
+ else
+ {
+  ?>
+<img class="time_of_day night" title="
+<?php
+  echo LANGUI_GAME_AFTERNOON;
+  ?>
+" alt="
+<?php
+  echo LANGUI_GAME_AFTERNOON;
+  ?>
+" src="assets/x.gif" />
+<?php
+ }
+}
+?>
+<p>
+<a href="index.php">
+<?php echo LANGUI_GAME_MENU1;
+?>
+</a>
+<?php
+if ( $this->player != NULL )
+{
+ ?>
+<a href="#" onclick="return showManual(0,0);">
+<?php echo LANGUI_GAME_MENU2;
+ ?>
+</a>
+<a href="profile.php">
+<?php echo LANGUI_GAME_MENU3;
+ ?>
+</a>
+<a href="chat.php">
+<?php echo LANGUI_GAME_MENU12;
+ ?>
+</a>
+<a href="
+<?php echo $this->appConfig['system']['forum_url'];
+ ?>
+" target="_blank">
+<?php echo LANGUI_GAME_T1;
+ ?>
+</a>
+<a href="
+<?php echo $this->appConfig['system']['social_url'];
+ ?>
+" target="_blank">
+<?php echo LANGUI_GAME_T2;
+ ?>
+</a>
+<a href="logout.php">
+<?php echo LANGUI_GAME_MENU4;
+ ?>
+</a>
+<?php
+ if ( $this->data['active_plus_account'] )
+ {
+  ?>
+<p>
+<a href="notes.php">
+<?php
+  echo LANGUI_GAME_MENU5;
+  ?>
+</a>
+<a href="links.php">
+<?php
+  echo LANGUI_GAME_MENU6;
+  ?>
+</a>
+</p>
+<?php
+ }
+ ?>
+
+<?php
+ if ( $this->data['player_type'] == PLAYERTYPE_ADMIN )
+ {
+  ?>
+<p>
+<a href="news.php">
+<?php
+  echo LANGUI_GAME_MENU7;
+  ?>
+</a>
+<a href="gnews.php">
+<?php
+  echo LANGUI_GAME_MENU8;
+  ?>
+</a>
+<a href="badwords.php">
+<?php
+  echo LANGUI_GAME_MENU10;
+  ?>
+</a>
+<a href="advertising.php">
+<?php
+  echo LANGUI_GAME_MENU11;
+  ?>
+</a>
+</p>
+<?php
+ }
+}
+?>
+</p>
+<p>
+<a href="plus.php?t=2 ">
+<b>
+<font color="#FF6F0F">
+<?php echo LANGUI_GAME_MENU9;
+?>
+</font>
+</b>
+</a>
+</p>
+<?php
+if ( $this->player != NULL && $this->isPlayerInDeletionProgress( ) )
+{
+ ?>
+<p class="deltimer">
+<a href="profile.php?t=4">
+<?php echo LANGUI_GAME_PLAYERDEL;
+ ?>
+ <span id="timer1">
+<?php echo $this->getPlayerDeletionTime( );
+ ?>
+</span> 
+<?php echo time_hour_lang;
+ ?>
+</a>
+</p>
+<?php
+}
+?>
+</div>
+<div id="content" class="
+<?php echo $this->contentCssClass;
+?>
+">
+<?php
+$this->printContent( );
+?>
+</div>
+<div id="side_info">
+<?php
+if ( $this->data['guide_quiz'] != GUIDE_QUIZ_COMPLETED && $this->player != NULL )
+{
+ ?>
+<div id="anm" style="width:118px; height:142px; visibility: hidden;">
+</div>
+<div id="qge">
+<img onclick="showTask();" src="assets/x.gif" id="qgei" class="
+<?php echo $this->getGuideQuizClassName( );
+ ?>
+" title="
+<?php echo LANGUI_GAME_LMENU1;
+ ?>
+" alt="
+<?php echo LANGUI_GAME_LMENU1;
+ ?>
+">
+</div>
+<?php
+}
+if ( $this->player != NULL )
+{
+ if ( 1 < sizeof( $this->playerVillages ) )
+ {
+  ?>
+<table cellpadding="1" cellspacing="1" id="vlist">
+<thead>
+<tr>
+<td colspan="3">
+<b>
+<?php
+  echo LANGUI_GAME_LMENU2;
+  ?>
+:</b>
+</td>
+</tr>
+</thead>
+<tbody>
+<?php
+  foreach ( $this->playerVillages as $vid => $pvillage )
+  {
+?>
+<tr>
+<td class="dot
+<?php
+if ( $vid == $this->data['selected_village_id'] )
+{
+ ?>
+  hl
+<?php
+}
+?>
+">o</td>
+<td class="link">
+<div>
+<a href="?vid=
+<?php echo $vid.$this->villagesLinkPostfix;
+?>
+">
+<?php echo $pvillage[2];
+?>
+</a>
+</div>
+</td>
+<td class="aligned_coords">
+<div class="cox">(
+<?php echo $pvillage[0];
+?>
+</div>
+<div class="pi">|</div>
+<div class="coy">
+<?php echo $pvillage[1];
+?>
+)</div>
+</td>
+</tr>
+<?php
+  }
+  ?>
+</tbody>
+</table>
+<?php
+ }
+ ?>
+
+<?php
+ if ( sizeof( $this->playerLinks ) && $this->data['active_plus_account'] )
+ {
+  ?>
+<table id="llist">
+<thead>
+<tr>
+<td colspan="2">
+<a href="links.php">
+<?php
+  echo LANGUI_GAME_LMENU3;
+  ?>
+:</a>
+</td>
+</tr>
+</thead>
+<tbody>
+<?php
+  foreach ( $this->playerLinks as $link )
+  {
+?>
+<tr>
+<td class="dot">?</td>
+<td class="link">
+<div>
+<a href="
+<?php echo htmlspecialchars( $link['linkHref'] );
+?>
+"
+<?php
+if ( !$link['linkSelfTarget'] )
+{
+ ?>
+ target="_blank"
+<?php
+}
+?>
+>
+<?php echo $link['linkName'];
+?>
+</a>
+<?php
+if ( !$link['linkSelfTarget'] )
+{
+ ?>
+ <img class="external" src="assets/x.gif" alt="
+<?php echo LANGUI_GAME_LMENU4;
+ ?>
+" title="
+<?php echo LANGUI_GAME_LMENU4;
+ ?>
+">
+<?php
+}
+?>
+</div>
+</td>
+</tr>
+<?php
+  }
+  ?>
+</tbody>
+</table>
+<?php
+ }
+ ?>
+ <div align="center" style="position: absolute; left: <?php echo $this->appConfig['system']['lang'] == "ar" ? "-10" : "200px; top: -20px;" ?>
+<?php
+ if ( 0 < sizeof( $this->banner ) )
+ {
+  if ( $this->banner['type'] == "image" )
+  {
+?>
+<a target="_blank" href="banner.php?url=".base64_encode( $this->banner['ID'] ).""> <img width="120" height="450" src="".$this->banner['image']."" border="0" title="".$this->banner['name'].""  alt="".$this->banner['name']."">
+</a> 
+<?php
+  }
+  else
+  {
+?>
+<embed width="120" height="450" onclick="window.location.href('banner.php?url=".base64_encode( $this->banner['ID'] )."')" title="".$this->banner['name']."" src="".$this->banner['image']."" />
+<?php
+  }
+ }
+ ?>
+</div>
+<?php
+}
+?>
+</div>
+<div class="clear">
+</div>
+</div>
+<div class="footer-stopper">
+</div>
+<div class="clear">
+</div>
+<div id="footer">
+<div id="mfoot">
+<div class="footer-menu">
+<?php
+require( VIEW_PATH."layout/footer.phtml" );
+?>
+</div>
+</div> <div id="cfoot">
+</div>
+</div>
+</div>
+<?php
+if ( $this->player != NULL )
+{
+ ?>
+<div id="res">
+<div id="resWrap">
+<table cellpadding="1" cellspacing="1">
+<tbody>
+<tr>
+<td>
+<img src="assets/x.gif" class="r1" alt="
+<?php echo item_title_1;
+ ?>
+" title="
+<?php echo item_title_1;
+ ?>
+" />
+</td>
+<td id="l4" title="
+<?php echo $this->resources[1]['calc_prod_rate'];
+ ?>
+">
+<?php echo $this->resources[1]['current_value'];
+ ?>
+/
+<?php echo $this->resources[1]['store_max_limit'];
+ ?>
+</td>
+<td>
+<img src="assets/x.gif" class="r2" alt="
+<?php echo item_title_2;
+ ?>
+" title="
+<?php echo item_title_2;
+ ?>
+" />
+</td>
+<td id="l3" title="
+<?php echo $this->resources[2]['calc_prod_rate'];
+ ?>
+">
+<?php echo $this->resources[2]['current_value'];
+ ?>
+/
+<?php echo $this->resources[2]['store_max_limit'];
+ ?>
+</td>
+<td>
+<img src="assets/x.gif" class="r3" alt="
+<?php echo item_title_3;
+ ?>
+" title="
+<?php echo item_title_3;
+ ?>
+" />
+</td>
+<td id="l2" title="
+<?php echo $this->resources[3]['calc_prod_rate'];
+ ?>
+">
+<?php echo $this->resources[3]['current_value'];
+ ?>
+/
+<?php echo $this->resources[3]['store_max_limit'];
+ ?>
+</td>
+<td>
+<img src="assets/x.gif" class="r4" alt="
+<?php echo item_title_4;
+ ?>
+" title="
+<?php echo item_title_4;
+ ?>
+" />
+</td>
+<td id="l1" title="
+<?php echo $this->resources[4]['calc_prod_rate'];
+ ?>
+">
+<?php echo $this->resources[4]['current_value'];
+ ?>
+/
+<?php echo $this->resources[4]['store_max_limit'];
+ ?>
+</td>
+<?php
+ if ( !$this->wrap )
+ {
+  ?>
+<td>
+<img src="assets/x.gif" class="r5" alt="
+<?php
+  echo LANGUI_GAME_CROPCONSUM;
+  ?>
+" title="
+<?php
+  echo LANGUI_GAME_CROPCONSUM;
+  ?>
+" />
+</td>
+<td>
+<?php
+  echo $this->data['crop_consumption'];
+  ?>
+/
+<?php
+  echo $this->data['crop_consumption'] + $this->resources[4]['calc_prod_rate'];
+  ?>
+</td>
+<?php
+ }
+ else
+ {
+  ?>
+</tr>
+<tr>
+<td colspan="6">
+</td>
+<td>
+<img src="assets/x.gif" class="r5" alt="
+<?php
+  echo LANGUI_GAME_CROPCONSUM;
+  ?>
+" title="
+<?php
+  echo LANGUI_GAME_CROPCONSUM;
+  ?>
+">
+</td>
+<td>
+<?php
+  echo $this->data['crop_consumption'];
+  ?>
+/
+<?php
+  echo $this->data['crop_consumption'] + $this->resources[4]['calc_prod_rate'];
+  ?>
+</td>
+<?php
+ }
+ ?>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<?php
+ //$sec = explode( " ", microtime( ) )[1];
+ //$usec = explode( " ", microtime( ) )[0];
+ ?>
+<div id="stime">
+<div id="ltime">
+<div id="ltimeWrap">
+<?php echo LANGUI_GAME_CALCMS;
+ ?>
+ <b>
+<?php
+ //echo ceil( ( ( double ) + ( double ) - $GLOBALS['__scriptStart'] ) * 1000 );
+ ?>
+</b> ms<br />
+<?php echo LANGUI_GAME_SRVTIME;
+ ?>
+ <span id="timer2" class="b">
+<?php echo date( "G:i:s" );
+ ?>
+</span>
+</div>
+</div>
+</div>
+<?php
+}
+?>
+ <div id="ce">
+</div>
+</body>
+<script type="text/javascript">init();
+<?php
+if ( $this->player != NULL && !$this->player->isSpy && $this->data['guide_quiz'] == GUIDE_QUIZ_NOTSTARTED )
+{
+ ?>
+showTask();
+<?php
+}
+?>
+</script>
+</html>
+<?php
+?>

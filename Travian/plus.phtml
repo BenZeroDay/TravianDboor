@@ -1,0 +1,251 @@
+<?php require_once (LANG_UI_PATH . 'plus.php'); ?><h1><p><b><?php echo LANGUI_PLUS_T1;?> <font color="#FF6F0F"><?php echo LANGUI_PLUS_T2;?></font></b></p></h1>
+<div id="textmenu">
+   <a href="plus.php"<?php if ($this->selectedTabIndex == 0) { echo ' class="selected"'; }?>><?php echo LANGUI_PLUS_T3;?></a>
+ | <a href="plus.php?t=1"<?php if ($this->selectedTabIndex == 1) { echo ' class="selected"'; }?>><?php echo LANGUI_PLUS_T4;?></a>
+ | <a href="plus.php?t=2"<?php if ($this->selectedTabIndex == 2) { echo ' class="selected"'; }?>><?php echo LANGUI_PLUS_T5;?></a>
+</div>
+<?php if ($this->selectedTabIndex == 0) { ?>
+<?php if ($this->packageIndex < 0) { ?>
+<div id="products">
+	<?php $_c = 0;
+	foreach ($this->appConfig['plus']['packages'] as $package) { $_c++;?>
+	<table class="product lang_rtl lang_ar" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr><th><?php echo $package['name'];?></th></tr>
+		</thead>
+        <tbody>
+			<tr><td class="pic"><a href="?id=<?php echo $_c;?>"><img src="assets/default/plus/<?php echo htmlspecialchars ($package['image']);?>" style="width:100px;height:100px;" alt="<?php echo htmlspecialchars ($package['name']);?>"></a></td></tr>
+            <tr><td><?php echo $package['gold'];?>&nbsp;<?php echo LANGUI_PLUS_T6;?></td></tr>
+            <tr><td><?php echo $package['cost'];?>&nbsp;<?php echo $package['currency'];?></td></tr>
+			<tr><td><a href="?id=<?php echo $_c;?>"><?php echo LANGUI_PLUS_T7;?></a></td></tr>
+		</tbody>
+	</table>
+	<?php } ?>
+	<div class="clear"></div>
+</div>
+<?php } else { ?>
+<?php $_c = 0;
+foreach ($this->appConfig['plus']['payments'] as $paymentKey=>$payment) { $_c++;?>
+<table class="rate_details lang_rtl lang_ar" cellpadding="1" cellspacing="1">
+    <thead>
+        <tr><th colspan="2"><?php echo $_c . '. ' . $payment['name'];?></th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="pic">
+				<img src="assets/default/plus/<?php echo htmlspecialchars ($this->appConfig['plus']['packages'][$this->packageIndex]['image']);?>" style="width:100px;height:100px;" alt="<?php echo htmlspecialchars ($this->appConfig['plus']['packages'][$this->packageIndex]['name']);?>">
+                <div><?php echo text_period_lang;?>: <?php echo $payment['period'];?></div>
+            </td>
+            <td class="desc">
+                <?php echo $payment['description'];?><br>
+                <a href="#" onclick="window. open('payment.php?p=<?php echo $paymentKey;?>&c=<?php echo $paymentKey;?>&pg=<?php echo $this->packageIndex;?>','tgpay','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">
+                <img src="assets/default/plus/<?php echo htmlspecialchars ($payment['image']);?>" style="width:119px; height:58px;" alt="<?php echo htmlspecialchars ($payment['name']);?>"></a><br>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<?php } ?>
+<?php } ?>
+<?php } else if ($this->selectedTabIndex == 1) { ?>
+<table id="plus_features" class="features" cellpadding="1" cellspacing="1">
+	<thead>
+		<tr>
+			<th colspan="2"><p class="custDir"><?php echo LANGUI_PLUS_T8;?></p></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="2" class="empty"></td>
+		</tr>
+		<tr>
+			<th colspan="2"><?php echo LANGUI_PLUS_T9;?></th>
+		</tr>
+		<tr>
+			<td class="preview"><img class="p1" src="assets/x.gif" alt="<?php echo LANGUI_PLUS_T9;?>" title="<?php echo LANGUI_PLUS_T9;?>"></td>
+			<td class="text"><?php echo LANGUI_PLUS_T10;?></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="empty"></td>
+		</tr>
+		<tr>
+			<th colspan="2"><?php echo LANGUI_PLUS_T11;?></th>
+		</tr>
+		<tr>
+			<td class="preview"><img class="xxl_map" src="assets/x.gif" alt="<?php echo LANGUI_PLUS_T11;?>" title="<?php echo LANGUI_PLUS_T11;?>"></td>
+			<td class="text"><?php echo LANGUI_PLUS_T12;?></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="empty"></td>
+		</tr>
+		<tr>
+			<th colspan="2"><?php echo LANGUI_PLUS_T13;?></th>
+		</tr>
+		<tr>
+			<td class="preview"><img class="p7" src="assets/x.gif" alt="<?php echo LANGUI_PLUS_T13;?>" title="<?php echo LANGUI_PLUS_T13;?>"></td>
+			<td class="text"><?php echo LANGUI_PLUS_T14;?></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="empty"></td>
+		</tr>
+		<tr>
+			<th colspan="2"><?php echo LANGUI_PLUS_T15;?></th>
+		</tr>
+		<tr>
+			<td class="preview"><img class="p8" src="assets/x.gif" alt="<?php echo LANGUI_PLUS_T15;?>" title="<?php echo LANGUI_PLUS_T15;?>"></td>
+			<td class="text"><?php echo LANGUI_PLUS_T16;?></td>
+		</tr>
+	</tbody>
+</table>
+<table id="gold_features" class="features" cellpadding="1" cellspacing="1">
+	<thead>
+		<tr><th colspan="2"><?php echo LANGUI_PLUS_T17;?></th></tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="2" class="empty"></td>
+		</tr>
+		<tr>
+			<th colspan="2"><?php echo LANGUI_PLUS_T18;?></th>
+		</tr>
+		<tr>
+			<td class="preview"><img class="p1_25" src="assets/x.gif" alt="<?php echo LANGUI_PLUS_T18;?>" title="<?php echo LANGUI_PLUS_T18;?>"></td>
+			<td class="text"><?php echo LANGUI_PLUS_T19;?></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="empty"></td>
+		</tr>
+		<tr>
+			<th colspan="2"><?php echo LANGUI_PLUS_T20;?></th>
+		</tr>
+		<tr>
+			<td class="preview"><img class="p2_25" src="assets/x.gif" alt="<?php echo LANGUI_PLUS_T20;?>" title="<?php echo LANGUI_PLUS_T20;?>"></td>
+			<td class="text"><?php echo LANGUI_PLUS_T21;?></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="empty"></td>
+		</tr>
+		<tr>
+			<th colspan="2"><?php echo LANGUI_PLUS_T22;?></th>
+		</tr>
+		<tr>
+			<td class="preview"><img class="p3_25" src="assets/x.gif" alt="<?php echo LANGUI_PLUS_T22;?>" title="<?php echo LANGUI_PLUS_T22;?>"></td>
+			<td class="text"><?php echo LANGUI_PLUS_T23;?></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="empty"></td>
+		</tr>
+		<tr>
+			<th colspan="2"><?php echo LANGUI_PLUS_T24;?></th>
+		</tr>
+		<tr>
+			<td class="preview"><img class="p4_25" src="assets/x.gif" alt="<?php echo LANGUI_PLUS_T24;?>" title="<?php echo LANGUI_PLUS_T24;?>"></td>
+			<td class="text"><?php echo LANGUI_PLUS_T25;?></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="empty"></td>
+		</tr>
+		<tr>
+			<th colspan="2"><?php echo LANGUI_PLUS_T26;?></th>
+		</tr>
+		<tr>
+			<td class="preview"><img class="bau0" src="assets/x.gif" alt="<?php echo LANGUI_PLUS_T26;?>" title="<?php echo LANGUI_PLUS_T26;?>"></td>
+			<td class="text"><?php echo LANGUI_PLUS_T27;?></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="empty"></td>
+		</tr>
+		<tr>
+			<th colspan="2"><?php echo LANGUI_PLUS_T28;?></th>
+		</tr>
+		<tr>
+			<td class="preview"><img class="npc" src="assets/x.gif" alt="<?php echo LANGUI_PLUS_T28;?>" title="<?php echo LANGUI_PLUS_T28;?>"></td>
+			<td class="text"><?php echo LANGUI_PLUS_T29;?></td>
+		</tr>
+	</tbody>
+</table>
+<?php } else if ($this->selectedTabIndex == 2) { ?>
+<p><?php if ($this->data['gold_num']>0) { ?><?php echo LANGUI_PLUS_T30;?> <?php echo $this->data['gold_num']; ?> <?php echo LANGUI_PLUS_T31;?><?php } else { ?><?php echo LANGUI_PLUS_T32;?><?php } ?></p>
+<table class="plusFunctions" cellpadding="1" cellspacing="1">
+	<thead>
+		<tr><th colspan="5"><?php echo LANGUI_PLUS_T33;?></th></tr>
+		<tr><td></td><td><?php echo LANGUI_PLUS_T34;?></td><td><?php echo text_period_lang;?></td><td><?php echo LANGUI_PLUS_T2;?></td><td><?php echo LANGUI_PLUS_T35;?></td></tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="man"><a href="#" onclick="return showManual(5,0);"><img class="help" src="assets/x.gif" alt="" title=""></a></td>
+			<td class="desc">
+				<p><b><font color="#71D000"> <?php echo LANGUI_PLUS_T36;?>  </p><br>
+				<span class="run">&nbsp;<?php echo $this->getRemainingPlusTime (0); ?></span>
+			</td>
+			<td class="dur"><?php echo ($this->plusTable[0]['time']==0? LANGUI_PLUS_T37 : $this->plusTable[0]['time'] . ' ' . LANGUI_PLUS_T38); ?></td>
+			<td class="cost"><img src="assets/x.gif" class="gold" alt="<?php echo LANGUI_PLUS_T6;?>" title="<?php echo LANGUI_PLUS_T6;?>"><?php echo $this->plusTable[0]['cost']; ?></td>
+			<td class="act"><?php echo $this->getPlusAction (0); ?></td>
+		</tr>	
+		<tr>
+			<td colspan="5" class="empty"></td>
+		</tr>
+		
+		<tr>
+			<td class="man"><a href="#" onclick="return showManual(5,1);"><img class="help" src="assets/x.gif" alt="" title=""></a></td>
+			<td class="desc">
+				+<b>25</b>% <img class="r1" src="assets/x.gif" alt="<?php echo item_title_1;?>" title="<?php echo item_title_1;?>"> <?php echo LANGUI_PLUS_T39;?><br>
+				<span class="run">&nbsp;<?php echo $this->getRemainingPlusTime (1); ?></span>
+			</td>
+			<td class="dur"><?php echo ($this->plusTable[1]['time']==0? LANGUI_PLUS_T37 : $this->plusTable[1]['time'] . ' ' . LANGUI_PLUS_T38); ?></td>
+			<td class="cost"><img src="assets/x.gif" class="gold" alt="<?php echo LANGUI_PLUS_T6;?>" title="<?php echo LANGUI_PLUS_T6;?>"><?php echo $this->plusTable[1]['cost']; ?></td>
+			<td class="act"><?php echo $this->getPlusAction (1); ?></td>
+		</tr>
+	
+		<tr>
+			<td class="man"><a href="#" onclick="return showManual(5,2);"><img class="help" src="assets/x.gif" alt="" title=""></a></td>
+			<td class="desc">
+				+<b>25</b>% <img class="r2" src="assets/x.gif" alt="<?php echo item_title_2;?>" title="<?php echo item_title_2;?>"> <?php echo LANGUI_PLUS_T40;?><br>
+				<span class="run">&nbsp;<?php echo $this->getRemainingPlusTime (2); ?></span>
+			</td>
+			<td class="dur"><?php echo ($this->plusTable[2]['time']==0? LANGUI_PLUS_T37 : $this->plusTable[2]['time'] . ' ' . LANGUI_PLUS_T38); ?></td>
+			<td class="cost"><img src="assets/x.gif" class="gold" alt="<?php echo LANGUI_PLUS_T6;?>" title="<?php echo LANGUI_PLUS_T6;?>"><?php echo $this->plusTable[2]['cost']; ?></td>
+			<td class="act"><?php echo $this->getPlusAction (2); ?></td>
+		</tr>
+	
+		<tr>
+			<td class="man"><a href="#" onclick="return showManual(5,3);"><img class="help" src="assets/x.gif" alt="" title=""></a></td>
+			<td class="desc">
+				+<b>25</b>% <img class="r3" src="assets/x.gif" alt="<?php echo item_title_3;?>" title="<?php echo item_title_3;?>"> <?php echo LANGUI_PLUS_T41;?><br>
+				<span class="run">&nbsp;<?php echo $this->getRemainingPlusTime (3); ?></span>
+			</td>
+			<td class="dur"><?php echo ($this->plusTable[3]['time']==0? LANGUI_PLUS_T37 : $this->plusTable[3]['time'] . ' ' . LANGUI_PLUS_T38); ?></td>
+			<td class="cost"><img src="assets/x.gif" class="gold" alt="<?php echo LANGUI_PLUS_T6;?>" title="<?php echo LANGUI_PLUS_T6;?>"><?php echo $this->plusTable[3]['cost']; ?></td>
+			<td class="act"><?php echo $this->getPlusAction (3); ?></td>
+		</tr>
+	
+		<tr>
+			<td class="man"><a href="#" onclick="return showManual(5,4);"><img class="help" src="assets/x.gif" alt="" title=""></a></td>
+			<td class="desc">
+				+<b>25</b>% <img class="r4" src="assets/x.gif" alt="<?php echo item_title_4;?>" title="<?php echo item_title_4;?>"> <?php echo LANGUI_PLUS_T42;?><br>
+				<span class="run">&nbsp;<?php echo $this->getRemainingPlusTime (4); ?></span>
+			</td>
+			<td class="dur"><?php echo ($this->plusTable[4]['time']==0? LANGUI_PLUS_T37 : $this->plusTable[4]['time'] . ' ' . LANGUI_PLUS_T38); ?></td>
+			<td class="cost"><img src="assets/x.gif" class="gold" alt="<?php echo LANGUI_PLUS_T6;?>" title="<?php echo LANGUI_PLUS_T6;?>"><?php echo $this->plusTable[4]['cost']; ?></td>
+			<td class="act"><?php echo $this->getPlusAction (4); ?></td>
+		</tr>
+	
+		<tr>
+			<td colspan="5" class="empty"></td>
+		</tr>
+		<tr>
+			<td class="man"><a href="#" onclick="return showManual(5,5);"><img class="help" src="assets/x.gif" alt="" title=""></a></td>
+			<td class="desc"><?php echo LANGUI_PLUS_T43;?></td>
+			<td class="dur"><?php echo ($this->plusTable[5]['time']==0? LANGUI_PLUS_T37 : $this->plusTable[5]['time'] . ' ' . LANGUI_PLUS_T38); ?></td>
+			<td class="cost"><img src="assets/x.gif" class="gold" alt="<?php echo LANGUI_PLUS_T6;?>" title="<?php echo LANGUI_PLUS_T6;?>"><?php echo $this->plusTable[5]['cost']; ?></td>
+			<td class="act"><?php echo $this->getPlusAction (5); ?></td>
+		</tr>	
+		<tr>
+			<td class="man"><a href="#" onclick="return showManual(5,7);"><img class="help" src="assets/x.gif" alt="" title=""></a></td>
+			<td class="desc"><?php echo LANGUI_PLUS_T44;?></td>
+			<td class="dur"><?php echo ($this->plusTable[6]['time']==0? LANGUI_PLUS_T37 : $this->plusTable[6]['time'] . ' ' . LANGUI_PLUS_T38); ?></td>
+			<td class="cost"><img src="assets/x.gif" class="gold" alt="<?php echo LANGUI_PLUS_T6;?>" title="<?php echo LANGUI_PLUS_T6;?>"><?php echo $this->plusTable[6]['cost']; ?></td>
+			<td class="act"><?php echo $this->getPlusAction (6); ?></td>
+		</tr>	
+	</tbody>
+</table>
+<?php } ?>

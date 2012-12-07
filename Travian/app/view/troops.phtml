@@ -1,0 +1,77 @@
+<?php
+/**
+*
+* @ This file is created by Decodeby.US
+* @ deZender Public (PHP5 Decompiler)
+*
+* @	Version			:	1.0.0.0
+* @	Author			:	Ps2Gamer & Cyko
+* @	Release on		:	30.05.2011
+* @	Official site	:	http://decodeby.us
+*
+*/
+
+//require_once( LANG_UI_PATH."troops.php" );
+?>
+<h1><img class="point" src="assets/x.gif" alt="" title="">
+<?php echo LANGUI_TROOP_T1; ?>
+</h1>
+<p></p>
+<form method="post" action="troops.php?avid=<?php echo $this->villageId;?>">
+<table cellpadding="1" cellspacing="1" id="position" class="small_option">
+	<thead>
+		<tr><th colspan="2"><?php echo LANGUI_TROOP_T2; ?></th></tr>
+	</thead>
+		<tbody>
+			<tr>
+				<th><?php echo LANGUI_TROOP_T3; ?></th>
+				<td><?php echo $this->villageName; ?></td>
+			</tr>
+			<tr>
+				<th><?php echo LANGUI_TROOP_T4; ?></th>
+				<td><?php echo $this->playerName; ?></td>
+			</tr>
+		</tbody>
+</table><p></p>
+<table cellpadding="1" cellspacing="1" id="rights" class="small_option">
+	<thead>
+			<tr><th>
+<?php
+echo "<form method=\"post\" action=\"troops.php?avid=";
+echo $this->villageId;
+echo "\">";
+echo LANGUI_TROOP_T5;
+echo "</th>";
+echo "<th>";
+echo LANGUI_TROOP_T7;
+echo "</th></tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t";
+$num = 1;  
+foreach ( $this->troops as $t2_str )
+            {
+              
+                $tnum = explode( " ", $t2_str );
+                $tid = explode( " ", $t2_str );
+                list( $tid, $tnum ) = $tid;  
+                
+                $troopName = htmlspecialchars( constant( "troop_".$tid ) );            
+               ?>
+                <tr>
+<td class="ico"> <input type="hidden" value="<?php echo $tid;?>" name="t<?php echo $num?>type"> <input type="radio" name="hero" value="<?php echo $tid;?>" >
+<img class="unit u<?php echo $tid;?> src="assets/x.gif" alt="<?php echo $troopName;?>" title="
+       <?php echo $troopName;?>"></td>
+       <td class="num"><input class="name text" type="text" name="t<?php echo $num?>" value="<?php echo $tnum;?>" maxlength="20"></td>
+       </tr>
+               
+               <?php
+               $num++;
+            }
+echo "<p><input type=\"image\" value=\"ok\" name=\"s1\" id=\"btn_save\" class=\"dynamic_img\" src=\"assets/x.gif\" alt=\"";
+echo text_save_lang;
+echo "\"></p>\r\n</form>\r\n";
+if ( $this->isPost( ) )
+{
+    echo "<p class=\"error\">";
+    echo $this->msgText;
+    echo "</p>";
+}
+?>

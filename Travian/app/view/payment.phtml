@@ -1,0 +1,56 @@
+<?php
+/**
+*
+* @ This file is created by Decodeby.US
+* @ deZender Public (PHP5 Decompiler)
+*
+* @	Version			:	1.0.0.0
+* @	Author			:	Ps2Gamer & Cyko
+* @	Release on		:	30.05.2011
+* @	Official site	:	http://decodeby.us
+*
+*/
+
+if ( !$this->requestPaymentProvider )
+{
+    echo "<s";
+    echo "tyle type=\"text/css\"> \r\nhtml, body {\r\n    margin: 0em;\r\n    padding: 0em;\r\n    background-color: #e9e9e9;\r\n    font-size: 11px;\r\n    font-family: Verdana, Arial, Helvetica, sans-serif;\r\n    color: #333333;\r\n}\r\ndiv.messagebox {\r\n    position: relative;\r\n    margin: 75px auto 75px auto;\r\n    padding: 20px;\r\n    width: 300px;\r\n    background-color: #ffffff;\r\n    border: 2px solid #d6d6d6;\r\n    text-a";
+    echo "lign: center;\r\n    font-size: 15px;\r\n    font-weight: bold;\r\n    white-space: nowrap;\r\n}\r\n</style>\r\n \r\n<div class=\"messagebox\"> \r\n<img src=\"assets/default/plus/tgp-bytraviangames.png\" width=\"191\" height=\"252\" alt=\"\"><br><br> \r\n<img src=\"assets/default/plus/loading.gif\" width=\"48\" height=\"48\" alt=\"loading\"><br><br> \r\n";
+    echo $this->title;
+    echo "</div> \r\n \r\n<div id=\"container\"></div>\r\n\r\n<noscript>Please enable JavaScript in your Browser to continue.</noscript> \r\n";
+    echo "<s";
+    echo "cript type=\"text/javascript\"> \r\n<!--\r\nfunction createRequestObject() {\r\n    var browser = navigator.appName;\r\n    if (browser == 'Microsoft Internet Explorer') {\r\n        return new ActiveXObject('Microsoft.XMLHTTP');\r\n    } else {\r\n        return new XMLHttpRequest();\r\n    }\r\n\r\n    return null;\r\n}\r\n \r\nfunction loadProviderHtml() {\r\n    http.open('get', 'payment.php?c&p=";
+    echo $_GET['p'];
+    echo "&pg=";
+    echo $_GET['pg'];
+    echo "');\r\n    http.onreadystatechange     = handleLoadProviderHtmlResponse;\r\n    http.send(null);\r\n}\r\n \r\nfunction handleLoadProviderHtmlResponse() {\r\n    if (http.readyState == 4) {\r\n        if (http.status == 200) {\r\n            var response        = http.responseText;\r\n            var target          = document.getElementById('container');\r\n            target.innerHTML    = response;\r\n            doc";
+    echo "ument.payment.submit();\r\n        } else {\r\n            var target          = document.getElementById('container');\r\n            target.innerHTML    = 'Error: unable to load payment provider. ('+ http.statusText +')';\r\n        }\r\n    }\r\n}\r\n\r\nvar http = createRequestObject();\r\nloadProviderHtml();\r\n//-->\r\n</script>\r\n";
+}
+else if ( $this->providerType == "paypal" )
+{
+    require_once( LIB_PATH."paypal.class.php" );
+    $p = new paypal_class( );
+    if ( $this->payment['testMode'] )
+    {
+        $p->paypal_url = "https://www.sandbox.paypal.com/cgi-bin/webscr";
+    }
+    else
+    {
+        $p->paypal_url = "https://www.paypal.com/cgi-bin/webscr";
+    }
+    $dtest = sprintf( "%s ".text_gold_lang, $this->package['gold'] );
+    $this_script = $this->Domain."paymentservice_paypal.php";
+    $p->add_field( "business", $this->payment['merchant_id'] );
+    $p->add_field( "return", $this_script."?action=success" );
+    $p->add_field( "cancel_return", $this_script."?action=cancel" );
+   // $p->add_field( "notify_url", $this_script."?action=ipn" );
+    $p->add_field( "item_number", $this->secureId  );
+    $p->add_field( "item_name", $this->package['gold'] );
+   // $p->add_field( "custom", $this->secureId );
+    $p->add_field( "bn", "btn_buynow_SM.gif" );
+    $p->add_field( "amount", $this->package['cost'] );
+    $p->add_field( "currency_code", $this->payment['currency'] );
+
+    $p->submit_paypal_post( );
+}
+?>

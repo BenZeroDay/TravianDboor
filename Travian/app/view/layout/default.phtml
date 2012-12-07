@@ -1,0 +1,39 @@
+<?php
+/**
+*
+* @ This file is created by Decodeby.US
+* @ deZender Public (PHP5 Decompiler)
+*
+* @	Version			:	1.0.0.0
+* @	Author			:	Ps2Gamer & Cyko
+* @	Release on		:	30.05.2011
+* @	Official site	:	http://decodeby.us
+*
+*/
+
+echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3c.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"eg\" lang=\"eg\">\r\n\t<head>\r\n\t\t<title>";
+echo $this->appConfig['page'][$this->appConfig['system']['lang']."_title"];
+echo "</title>\r\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n\t\t<meta http-equiv=\"content-script-type\" content=\"text/javascript\" />\r\n\t\t<meta http-equiv=\"content-style-type\" content=\"text/css\" />\r\n\t\t<meta content=\"";
+echo $this->appConfig['page']['meta-tag'];
+echo "\" name=\"description\"> \r\n\t\t<meta content=\"";
+echo $this->appConfig['page']['meta-tag'];
+echo "\" name=\"keywords\">\r\n\t\t<link rel=\"stylesheet\" href=\"assets/default/lang/";
+echo $this->appConfig['system']['lang'];
+echo "/config.css";
+echo $this->getAssetVersion( );
+echo "\" type=\"text/css\" />\r\n\t\t<meta name=\"google-site-verification\" content=\"vTjsRxnpRzHRJvw5E3uOiAA-jcGayHNOw_SEAD93-fc\" />\r\n\t\t<link rel=\"shortcut icon\" href=\"assets/favicon.ico\" type=\"image/x-icon\" />\r\n\t\t";
+echo "<s";
+echo "cript type=\"text/javascript\">var d3l=";
+echo $this->appConfig['system']['lang'] == "ar" ? "180" : "-600";
+echo ";</script>\r\n\t\t";
+echo "<s";
+echo "cript src=\"assets/core.js";
+echo $this->getAssetVersion( );
+echo "\" type=\"text/javascript\"></script>\r\n\t</head>\r\n\t<body class=\"webkit\">\r\n\t\t<div class=\"wrapper\">\r\n\t\t\t<div class=\"content\">";
+$this->printContent( );
+echo "<div class=\"clear\"></div></div>\r\n\t\t\t<div class=\"footer-stopper\"></div>\r\n\t\t\t<div class=\"clear\"></div>\r\n\t\t\t<div class=\"footer\">\r\n\t\t\t\t<div class=\"container container\">\r\n\t\t\t\t\t";
+require( VIEW_PATH."layout/footer.phtml" );
+echo "\t\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</body>\r\n\t";
+echo "<s";
+echo "cript type=\"text/javascript\">init();</script>\r\n</html>";
+?>

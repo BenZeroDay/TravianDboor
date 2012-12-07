@@ -1,0 +1,228 @@
+ <?php
+/**
+*
+* @ This file is created by Decodeby.US
+* @ deZender Public (PHP5 Decompiler)
+*
+* @	Version			:	1.0.0.0
+* @	Author			:	Ps2Gamer & Cyko
+* @	Release on		:	30.05.2011
+* @	Official site	:	http://decodeby.us
+*
+*/
+
+require_once( LANG_UI_PATH."village4.php" );
+
+echo "<h1>";
+echo LANGUI_VIL3_T1;
+echo "</h1>\r\n\r\n<div id=\"textmenu\">\r\n <a href=\"village4.php\"";
+if ( $this->selectedTabIndex == 0  )
+{
+    echo " class=\"selected\"";
+}
+echo ">";
+echo LANGUI_VIL3_T1;
+echo "</a>\r\n | <a href=\"village4.php?t=1\"";
+if ( $this->selectedTabIndex == 1 )
+{
+    echo " class=\"selected\"";
+}
+echo ">";
+echo LANGUI_VIL3_T2;
+echo "</a>\r\n | <a href=\"village4.php?t=2\"";
+if ( $this->selectedTabIndex == 2 )
+{
+    echo " class=\"selected\"";
+}
+echo ">";
+echo LANGUI_VIL3_T3;
+echo "</a>\r\n | <a href=\"village4.php?t=3\"";
+if ( $this->selectedTabIndex == 3 )
+{
+    echo " class=\"selected\"";
+}
+echo ">";
+echo LANGUI_VIL3_T4;
+echo "</a>\r\n ";
+echo " | <a href=\"village4.php?t=4\"";
+if ( $this->selectedTabIndex == 4 )
+{
+    echo " class=\"selected\"";
+}
+echo ">";
+echo LANGUI_VIL3_T5;
+echo "</a>\r\n</div>\r\n";
+if ( $this->selectedTabIndex == 0 )
+{
+?>
+<table id="overview" cellpadding="1" cellspacing="1">
+<thead>
+<tr><th colspan="5"><?=LANGUI_VIL3_T1;?></th></tr>
+<tr><td><?=LANGUI_VIL3_T6;?></td><td><?=LANGUI_VIL3_T7;?></td><td><?=LANGUI_VIL3_T8;?></td><td><?=LANGUI_VIL3_T5;?></td><td><?=LANGUI_VIL3_T9;?></td></tr>
+</thead>
+<tbody>
+<?php
+foreach ( $this->playerVillages as $vid => $pvillage )
+        {
+            
+            
+            echo "<tr>\r\n\t\t\t\t<td class=\"link\"><div><a href=\"village1.php?vid=";
+            echo $vid;
+            echo "\">";
+            echo $pvillage[2];
+            echo "</a>  ($pvillage[0]|$pvillage[1])</div></td></tr>";
+            
+        }
+?>
+</tbody></table>
+<?php
+}
+if ( $this->selectedTabIndex == 1 )
+{
+?>
+<table id="ressources" cellpadding="1" cellspacing="1">
+<thead><tr><th colspan="6">Resources</th></tr>
+<tr>
+<td>Village</td><td><img class="r1" src="assets/x.gif" title="" alt=""></td><td><img class="r2" src="assets/x.gif" title="" alt=""></td><td><img class="r3" src="assets/x.gif" title="" alt=""></td><td><img class="r4" src="assets/x.gif" title="" alt=""></td><td>Merchants</td>
+</tr>
+
+</thead><tbody>
+<?php
+require_once( MODEL_PATH."resources.php" );  
+
+foreach ( $this->playerVillages as $vid => $pvillage )
+        {   
+            $m = new ResourcesModel( );
+            $row = $m->getVillageData( $vid );
+            $m->dispose( );     
+            $elapsedTimeInSeconds = $row['elapsedTimeInSeconds']; 
+            echo "<tr>\r\n\t\t\t\t<td class=\"link\"><div><a href=\"village1.php?vid=";
+            echo $vid;
+            echo "\">";
+            echo $pvillage[2];
+            echo "</a></div></td>";
+            $r_arr = explode( ",", $row['resources'] );
+                    foreach ( $r_arr as $r_str )
+                    {
+                        $r2 = explode( " ", $r_str );
+                        $prate = floor( $r2[4] * ( 1 + $r2[5] / 100 ) ) - ( $r2[0] == 4 ? $row['crop_consumption'] : 0 );
+                        $current_value = floor( $r2[1] + $elapsedTimeInSeconds * ( $prate / 3600 ) );
+                        if ( $r2[2] < $current_value )
+                        {
+                            $current_value = $r2[2];
+                        }
+                        $this->resourcesv4[$r2[0]] = array(
+                            "current_value" => $current_value,
+                            "store_max_limit" => $r2[2],
+                            "store_init_limit" => $r2[3],
+                            "prod_rate" => $r2[4],
+                            "prod_rate_percentage" => $r2[5],
+                            "calc_prod_rate" => $prate
+                        );
+                        
+                    }
+            echo "<td>".number_format($this->resourcesv4[1]['current_value'])."</td>";
+            echo "<td>".number_format($this->resourcesv4[2]['current_value'])."</td>";
+            echo "<td>".number_format($this->resourcesv4[3]['current_value'])."</td>";
+            echo "<td>".number_format($this->resourcesv4[4]['current_value'])."</td>";
+            echo "<td class=\"link\"><a href=\"build.php?vid=";
+            echo $vid."&bid=17";
+            echo "\">";
+            echo "0/0</td>";
+            echo "</tr>";
+            $woodSUM += $this->resourcesv4[1]['current_value'];
+            $claySUM += $this->resourcesv4[2]['current_value'];
+            $ironSUM += $this->resourcesv4[3]['current_value']; 
+            $cropSUM += $this->resourcesv4[4]['current_value'];
+            
+          
+            
+        }
+        
+?>
+
+<tr><td colspan="6" class="empty"></td></tr>
+<tr class="sum"><th>Sum
+</th><td class="lum"><?php echo number_format(round($woodSUM));?></td>
+<td class="clay"><?php echo number_format(round($claySUM));?></td>
+<td class="iron"><?php echo number_format(round($ironSUM));?></td>
+<td class="crop"><?php echo number_format(round($cropSUM));?></td>
+<td class="tra">&nbsp;</td>
+</tr></tbody></table>
+<?php    
+  
+}
+if ( $this->selectedTabIndex == 2 )
+{
+?>
+<table id="warehouse" cellpadding="1" cellspacing="1">
+<thead><tr><th colspan="7">Warehouse</th></tr>
+<tr><td>Village</td>
+<td><img class="r1" src="assets/x.gif" title="Wood" alt="Wood"></td>
+<td><img class="r2" src="assets/x.gif" title="Clay" alt="Clay"></td>
+<td><img class="r3" src="assets/x.gif" title="Iron" alt="Iron"></td>
+<td><img class="clock" src="assets/x.gif" title="Clock" alt="Clock"></td>
+<td><img class="r4" src="assets/x.gif" title="Crop" alt="Crop"></td>
+<td><img class="clock" src="assets/x.gif" title="Clock" alt="Clock"></td>
+</tr></thead><tbody>
+<?php
+
+?>
+</tbody></table>
+<?php
+}
+if ( $this->selectedTabIndex == 3 )
+{
+?>
+<table id="culture_points" cellpadding="1" cellspacing="1">
+<thead>
+<tr><th colspan="5">Culture points</th></tr>
+<tr><td>Village</td><td>CP/day</td><td>Celebrations</td><td>Troops</td><td>Slots</td></tr>
+</thead>
+<tbody>
+<?php
+
+?>
+
+<tr><td colspan="5" class="empty"></td></tr>
+
+<tr class="sum">
+    <th class="vil">Sum</th>
+    <td class="cps"><?php echo $gescp;?></td>
+    <td class="cel none">&nbsp;</td>
+
+    <td class="tro">
+    <?php     
+    echo $gessied;
+    echo $siedlerp;
+    echo '&nbsp;';
+    echo $gessen;
+    echo $senatorp;
+    ?></td>
+    <td class="slo"><?php echo $gesexp;echo '/';echo $gesdorf;?></td>
+</tr></tbody></table>
+<?php    
+}
+if ( $this->selectedTabIndex == 4 )
+{
+?>
+<table id="troops" cellpadding="1" cellspacing="1">
+<thead><tr><th colspan="12">Own troops</th></tr><tr>
+<td>Village</td>
+<?php
+   
+?>
+</tr></thead><tbody>
+<?php
+   
+?>
+
+<tr>
+<th>Sum</th>
+<?php
+   
+?>
+</tr></tbody></table>
+<?php
+}
+?>

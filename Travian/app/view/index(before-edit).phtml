@@ -1,0 +1,192 @@
+﻿<?php 
+// Decoded By Mr.php ---> www.kravian.net
+// Email: mr.php-majed@hotmail.com
+// You have no rights to delete my credets ..
+require_once( LANG_UI_PATH."index.php" );
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3c.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="eg" lang="eg">
+<head>
+<title>
+<?php echo $this->appConfig['page'][$this->appConfig['system']['lang']."_title"]; ?>
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-script-type" content="text/javascript" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta content="<?php echo $this->appConfig['page']['meta-tag']; ?>" name="description">
+<meta content="<?php echo $this->appConfig['page']['meta-tag']; ?>" name="keywords">
+<link rel="stylesheet" type="text/css" href="assets/indx/css/style_<?php echo $this->appConfig['system']['lang']; ?>.css<?php echo $this->getAssetVersion( ); ?>"/>
+<meta name="google-site-verification" content="vTjsRxnpRzHRJvw5E3uOiAA-jcGayHNOw_SEAD93-fc" />
+<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+<script type="text/javascript">var d3l=<?php echo $this->appConfig['system']['lang'] == "ar" ? "180" : "-600"; ?>;</script>
+<script src="assets/core.js<?php echo $this->getAssetVersion( ); ?>" type="text/javascript">
+</script>
+</head>
+<body>
+<div style="position:absolute; top:5px; left:20px;">
+<a href="" onclick="setLang('en')">
+<img src="assets/indx/img/en.jpg" border="0" title="<?php echo LANGUI_INDX_T12; ?>" alt="<?php echo LANGUI_INDX_T12; ?>" />
+</a>
+<a href="" onclick="setLang('ar')">
+<img src="assets/indx/img/ar.jpg" border="0" title="<?php echo LANGUI_INDX_T11; ?>" alt="<?php echo LANGUI_INDX_T11; ?>"/>
+</a>
+</div>
+<div id="allcontentts">
+<div id="mokatel">
+</div>
+<div id="header">
+<div class="logo">
+</div>
+<div class="formlogin">
+<form action="index.php" method="post" name="login">
+<input class="text<?php if ( $this->errorState == 1 ){  ?> iError<?php } ?>" name="name" type="text" title="<?php echo LANGUI_INDX_T1; ?>" value="<?php echo $this->name; ?>" />
+<input class="text<?php if ( $this->errorState == 2 ){ ?> iError<?php } ?>" name="password" type="password" title="<?php echo LANGUI_INDX_T2; ?>" value="<?php echo $this->password; ?>" />
+<input name="submit" type="submit" value="<?php echo LANGUI_INDX_T3; ?>" id="sub" />
+</form>
+<?php if ( $this->error != "" ){ ?>
+<div style="background-color:#FF0000;color:#FFFFFF;padding:2px;width:300px;"><?php $this->error ?></div>
+<?php } ?>
+</div>
+<!-- END [header] Class / ID -->
+</div>
+<div id="contentxx"> <div class="writeherethecont"> <div class="rightside"> <div class="rightstat">
+<table class="stats" cellpadding="2" cellspacing="2">
+<tr>
+<td>
+<strong>
+<?php echo LANGUI_INDX_T4; ?>:</strong>
+</td>
+<td>
+<?php echo $this->data['players_count']; ?>
+</td>
+</tr> <tr>
+<td>
+<strong>
+<?php echo LANGUI_INDX_T5; ?>:</strong>
+</td>
+<td>
+<?php echo $this->data['active_players_count']; ?>
+</td>
+</tr> <tr>
+<td>
+<strong>
+<?php echo LANGUI_INDX_T6; ?>:</strong>
+</td>
+<td>
+<?php echo $this->data['online_players_count']; ?>
+</td>
+</tr> </table>
+</div> <div class="rightnews"> <div class="rightnehed">
+</div> <h5 style="padding: 0px 10px 0px 10px">
+<?php echo nl2br( $this->data['news_text'] ); ?>
+</h5> </div> </div> <div class="leftside"> <!-- Content Site -->
+<div class="intro">
+<?php echo LANGUI_INDX_T7; ?>
+</div>
+<div class="buttonplay">
+<a href="manual.php">
+<span>
+<?php echo LANGUI_INDX_T8; ?>
+</span>
+</a>
+</div>
+<div class="sliddxx">  <ul id="slideshow">
+<?php echo LANGUI_INDX_T10; ?>
+</ul>  <div id="wrapper"> <div id="fullsize">
+<div id="imgprev" class="imgnav" title="Previous Image">
+</div>
+<div id="imglink">
+</div>
+<div id="imgnext" class="imgnav" title="Next Image">
+</div>
+<div id="image">
+</div>
+<div id="information">  <h3>
+</h3>  <p>
+</p>
+</div> </div> <div id="thumbnails">
+<div id="slideleft" title="Slide Left">
+</div>
+<div id="slidearea">  <div id="slider">
+</div>
+</div>
+<div id="slideright" title="Slide Right">
+</div> </div>  </div>  <script type="text/javascript" src="assets/indx/js/compressed.js
+<?php echo $this->getAssetVersion( ); ?>">
+</script>
+<script type="text/javascript">
+$('slideshow').style.display='none';
+$('wrapper').style.display='block';
+var slideshow=new TINY.slideshow("slideshow");
+window.onload=function(){
+slideshow.auto=true;slideshow.speed=5;
+slideshow.link="linkhover";
+slideshow.info="information";
+slideshow.thumbs="slider";
+slideshow.left="slideleft";
+slideshow.right="slideright";
+slideshow.scrollSpeed=4;
+slideshow.spacing=5;slideshow.active="#fff";
+slideshow.init("slideshow","image","imgprev","imgnext","imglink");
+}</script>
+</div>
+<div class="register">
+<a href="register.php">
+<span>
+<?php echo LANGUI_INDX_T9; ?>
+</span>
+</a>
+</div>
+<div class="bannerads" align="center">
+<?php
+if ( 0 < sizeof( $this->banner ) )
+{
+ if ( $this->banner['type'] == "image" )
+ {
+  ?>
+<a target="_blank" href="banner.php?url=".base64_encode( $this->banner['ID'] ).""> <img height="60" width="550" src="".$this->banner['image']."" border="0" title="".$this->banner['name'].""  alt="".$this->banner['name']."">
+</a> 
+<?php
+ }
+ else
+ {
+  ?>
+<embed height="60" width="550" onclick="window.location.href('banner.php?url=".base64_encode( $this->banner['ID'] )."')" title="".$this->banner['name']."" src="".$this->banner['image']."" />
+<?php
+ }
+}
+?>
+</div>
+<div class="copyr">
+<?php require_once( LANG_UI_PATH."footer.php" ); ?>
+<span>
+<a href="manual.php">
+<?php echo LANGUI_FOOTER_MANUAL; ?>
+</a>
+</span> |<span>
+<a href="training.php">
+<?php echo LANGUI_FOOTER_TRAINING; ?>
+</a>
+</span> |<span>
+<a href="<?php echo $this->appConfig['system']['forum_url']; ?>" target="_blank">
+<?php echo LANGUI_INDX_T13; ?>
+</a>
+</span> |<span>
+<a href="<?php echo $this->appConfig['system']['social_url']; ?>" target="_blank">
+<?php echo LANGUI_INDX_T14; ?>
+</a>
+</span> |<span>
+<a href="http://www.kravian.net" target="_blank">Copyright &copy; To Mr.php</a>
+</span>
+</div> </div>
+<!-- END [writeherethecont] Class / ID --> </div>
+<!-- END [content] Class / ID -->
+</div>
+<div id="footer">
+<!-- END [footer] Class / ID -->
+</div>
+<!-- END [allcontentts] Class / ID -->
+</div>
+</body>
+<script type="text/javascript">init();</script>
+</html>
