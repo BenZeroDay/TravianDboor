@@ -6,6 +6,18 @@ $AppConfig = array (
 		'password'			=> '',
 		'database'			=> '',
 	),
+	
+		    'Game' 			=> array (
+	
+		
+		'capacity'      => '10000', // מחסנים
+		
+		'carry'         => '10000', // אסמים
+	
+		'cranny'        => '10000', // נקיקים - עדיף שתשימו את המחסנים ונקיקים אותו הדבר
+
+
+		),
 	'page' 		=> array (
 		'ar_title'			=> 'Delview Travian',
 		'en_title'			=> 'Delview Travian',
