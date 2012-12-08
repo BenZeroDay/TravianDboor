@@ -1,5 +1,11 @@
 <?php
 
+require_once("config.php");
+
+
+$capacity=($AppConfig['Game']['capacity']);
+$cranny=($AppConfig['Game']['cranny']);
+
 $SetupMetadata = array (
 
 /**
@@ -3225,9 +3231,10 @@ array(
 
 
 
+
 array(
 
-'value' => 1700, 'time_consume' => 2000, 'cp' => 1, 'people_inc' => 1,
+'value' => $capacity * 1700, 'time_consume' => 2000, 'cp' => 1, 'people_inc' => 1,
 
 'resources' => array( '1' => 130, '2' => 160, '3' => 90, '4' => 40 )
 
@@ -3237,7 +3244,7 @@ array(
 
 array(
 
-'value' => 2000, 'time_consume' => 2620, 'cp' => 1, 'people_inc' => 1,
+'value' => $capacity * 2000, 'time_consume' => 2620, 'cp' => 1, 'people_inc' => 1,
 
 'resources' => array( '1' => 165, '2' => 205, '3' => 115, '4' => 50 )
 
@@ -3247,7 +3254,7 @@ array(
 
 array(
 
-'value' => 2500, 'time_consume' => 3340, 'cp' => 2, 'people_inc' => 1,
+'value' => $capacity * 2500, 'time_consume' => 3340, 'cp' => 2, 'people_inc' => 1,
 
 'resources' => array( '1' => 215, '2' => 260, '3' => 145, '4' => 65 )
 
@@ -3257,7 +3264,7 @@ array(
 
 array(
 
-'value' => 3100, 'time_consume' => 4170, 'cp' => 2, 'people_inc' => 1,
+'value' => $capacity * 3100, 'time_consume' => 4170, 'cp' => 2, 'people_inc' => 1,
 
 'resources' => array( '1' => 275, '2' => 335, '3' => 190, '4' => 85 )
 
@@ -3267,7 +3274,7 @@ array(
 
 array(
 
-'value' => 4000, 'time_consume' => 5140, 'cp' => 2, 'people_inc' => 1,
+'value' => $capacity * 4000, 'time_consume' => 5140, 'cp' => 2, 'people_inc' => 1,
 
 'resources' => array( '1' => 350, '2' => 430, '3' => 240, '4' => 105 )
 
@@ -3277,7 +3284,7 @@ array(
 
 array(
 
-'value' => 5000, 'time_consume' => 6260, 'cp' => 3, 'people_inc' => 1,
+'value' => $capacity * 5000, 'time_consume' => 6260, 'cp' => 3, 'people_inc' => 1,
 
 'resources' => array( '1' => 445, '2' => 550, '3' => 310, '4' => 135 )
 
@@ -3287,7 +3294,7 @@ array(
 
 array(
 
-'value' => 6300, 'time_consume' => 7570, 'cp' => 4, 'people_inc' => 1,
+'value' => $capacity * 6300, 'time_consume' => 7570, 'cp' => 4, 'people_inc' => 1,
 
 'resources' => array( '1' => 570, '2' => 705, '3' => 395, '4' => 175 )
 
@@ -3297,7 +3304,7 @@ array(
 
 array(
 
-'value' => 7800, 'time_consume' => 9080, 'cp' => 4, 'people_inc' => 1,
+'value' => $capacity * 7800, 'time_consume' => 9080, 'cp' => 4, 'people_inc' => 1,
 
 'resources' => array( '1' => 730, '2' => 900, '3' => 505, '4' => 225 )
 
@@ -3307,7 +3314,7 @@ array(
 
 array(
 
-'value' => 9600, 'time_consume' => 10830, 'cp' => 5, 'people_inc' => 1,
+'value' => $capacity * 9600, 'time_consume' => 10830, 'cp' => 5, 'people_inc' => 1,
 
 'resources' => array( '1' => 935, '2' => 1155, '3' => 650, '4' => 290 )
 
@@ -3317,7 +3324,7 @@ array(
 
 array(
 
-'value' => 11800, 'time_consume' => 12860, 'cp' => 6, 'people_inc' => 1,
+'value' => $capacity * 11800, 'time_consume' => 12860, 'cp' => 6, 'people_inc' => 1,
 
 'resources' => array( '1' => 1200, '2' => 1475, '3' => 830, '4' => 370 )
 
@@ -3327,7 +3334,7 @@ array(
 
 array(
 
-'value' => 14400, 'time_consume' => 15220, 'cp' => 7, 'people_inc' => 2,
+'value' => $capacity * 14400, 'time_consume' => 15220, 'cp' => 7, 'people_inc' => 2,
 
 'resources' => array( '1' => 1535, '2' => 1890, '3' => 1065, '4' => 470 )
 
@@ -3337,7 +3344,7 @@ array(
 
 array(
 
-'value' => 17600, 'time_consume' => 17950, 'cp' => 9, 'people_inc' => 2,
+'value' => $capacity * 17600, 'time_consume' => 17950, 'cp' => 9, 'people_inc' => 2,
 
 'resources' => array( '1' => 1965, '2' => 2420, '3' => 1360, '4' => 605 )
 
@@ -3347,7 +3354,7 @@ array(
 
 array(
 
-'value' => 21400, 'time_consume' => 21130, 'cp' => 11, 'people_inc' => 2,
+'value' => $capacity * 21400, 'time_consume' => 21130, 'cp' => 11, 'people_inc' => 2,
 
 'resources' => array( '1' => 2515, '2' => 3095, '3' => 1740, '4' => 775 )
 
@@ -3357,7 +3364,7 @@ array(
 
 array(
 
-'value' => 25900, 'time_consume' => 24810, 'cp' => 13, 'people_inc' => 2,
+'value' => $capacity * 25900, 'time_consume' => 24810, 'cp' => 13, 'people_inc' => 2,
 
 'resources' => array( '1' => 3220, '2' => 3960, '3' => 2230, '4' => 990 )
 
@@ -3367,7 +3374,7 @@ array(
 
 array(
 
-'value' => 31300, 'time_consume' => 29080, 'cp' => 15, 'people_inc' => 2,
+'value' => $capacity * 31300, 'time_consume' => 29080, 'cp' => 15, 'people_inc' => 2,
 
 'resources' => array( '1' => 4120, '2' => 5070, '3' => 2850, '4' => 1270 )
 
@@ -3377,7 +3384,7 @@ array(
 
 array(
 
-'value' => 37900, 'time_consume' => 34030, 'cp' => 18, 'people_inc' => 2,
+'value' => $capacity * 37900, 'time_consume' => 34030, 'cp' => 18, 'people_inc' => 2,
 
 'resources' => array( '1' => 5275, '2' => 6490, '3' => 3650, '4' => 1625 )
 
@@ -3387,7 +3394,7 @@ array(
 
 array(
 
-'value' => 45700, 'time_consume' => 39770, 'cp' => 22, 'people_inc' => 2,
+'value' => $capacity * 45700, 'time_consume' => 39770, 'cp' => 22, 'people_inc' => 2,
 
 'resources' => array( '1' => 6750, '2' => 8310, '3' => 4675, '4' => 2075 )
 
@@ -3397,7 +3404,7 @@ array(
 
 array(
 
-'value' => 55100, 'time_consume' => 46440, 'cp' => 27, 'people_inc' => 2,
+'value' => $capacity * 55100, 'time_consume' => 46440, 'cp' => 27, 'people_inc' => 2,
 
 'resources' => array( '1' => 8640, '2' => 10635, '3' => 5980, '4' => 2660 )
 
@@ -3407,7 +3414,7 @@ array(
 
 array(
 
-'value' => 66400, 'time_consume' => 54170, 'cp' => 32, 'people_inc' => 2,
+'value' => $capacity * 66400, 'time_consume' => 54170, 'cp' => 32, 'people_inc' => 2,
 
 'resources' => array( '1' => 11060, '2' => 13610, '3' => 7655, '4' => 3405 )
 
@@ -3417,7 +3424,7 @@ array(
 
 array(
 
-'value' => 80000, 'time_consume' => 63130, 'cp' => 38, 'people_inc' => 2,
+'value' => $capacity * 80000, 'time_consume' => 63130, 'cp' => 38, 'people_inc' => 2,
 
 'resources' => array( '1' => 14155, '2' => 17420, '3' => 9800, '4' => 4355 )
 
@@ -3445,7 +3452,7 @@ array(
 
 array(
 
-'value' => 1700, 'time_consume' => 1600, 'cp' => 1, 'people_inc' => 1,
+'value' => $capacity * 1700, 'time_consume' => 1600, 'cp' => 1, 'people_inc' => 1,
 
 'resources' => array( '1' => 80, '2' => 100, '3' => 70, '4' => 20 )
 
@@ -3455,7 +3462,7 @@ array(
 
 array(
 
-'value' => 2000, 'time_consume' => 2160, 'cp' => 1, 'people_inc' => 1,
+'value' => $capacity * 2000, 'time_consume' => 2160, 'cp' => 1, 'people_inc' => 1,
 
 'resources' => array( '1' => 100, '2' => 130, '3' => 90, '4' => 25 )
 
@@ -3465,7 +3472,7 @@ array(
 
 array(
 
-'value' => 2500, 'time_consume' => 2800, 'cp' => 2, 'people_inc' => 1,
+'value' => $capacity * 2500, 'time_consume' => 2800, 'cp' => 2, 'people_inc' => 1,
 
 'resources' => array( '1' => 130, '2' => 165, '3' => 115, '4' => 35 )
 
@@ -3475,7 +3482,7 @@ array(
 
 array(
 
-'value' => 3100, 'time_consume' => 3550, 'cp' => 2, 'people_inc' => 1,
+'value' => $capacity * 3100, 'time_consume' => 3550, 'cp' => 2, 'people_inc' => 1,
 
 'resources' => array( '1' => 170, '2' => 210, '3' => 145, '4' => 40 )
 
@@ -3485,7 +3492,7 @@ array(
 
 array(
 
-'value' => 4000, 'time_consume' => 4420, 'cp' => 2, 'people_inc' => 1,
+'value' => $capacity * 4000, 'time_consume' => 4420, 'cp' => 2, 'people_inc' => 1,
 
 'resources' => array( '1' => 215, '2' => 270, '3' => 190, '4' => 55 )
 
@@ -3495,7 +3502,7 @@ array(
 
 array(
 
-'value' => 5000, 'time_consume' => 5420, 'cp' => 3, 'people_inc' => 1,
+'value' => $capacity * 5000, 'time_consume' => 5420, 'cp' => 3, 'people_inc' => 1,
 
 'resources' => array( '1' => 275, '2' => 345, '3' => 240, '4' => 70 )
 
@@ -3505,7 +3512,7 @@ array(
 
 array(
 
-'value' => 6300, 'time_consume' => 6590, 'cp' => 4, 'people_inc' => 1,
+'value' => $capacity * 6300, 'time_consume' => 6590, 'cp' => 4, 'people_inc' => 1,
 
 'resources' => array( '1' => 350, '2' => 440, '3' => 310, '4' => 90 )
 
@@ -3515,7 +3522,7 @@ array(
 
 array(
 
-'value' => 7800, 'time_consume' => 7950, 'cp' => 4, 'people_inc' => 1,
+'value' => $capacity * 7800, 'time_consume' => 7950, 'cp' => 4, 'people_inc' => 1,
 
 'resources' => array( '1' => 450, '2' => 565, '3' => 395, '4' => 115 )
 
@@ -3525,7 +3532,7 @@ array(
 
 array(
 
-'value' => 9600, 'time_consume' => 9520, 'cp' => 5, 'people_inc' => 1,
+'value' => $capacity * 9600, 'time_consume' => 9520, 'cp' => 5, 'people_inc' => 1,
 
 'resources' => array( '1' => 575, '2' => 720, '3' => 505, '4' => 145 )
 
@@ -3535,7 +3542,7 @@ array(
 
 array(
 
-'value' => 11800, 'time_consume' => 11340, 'cp' => 6, 'people_inc' => 1,
+'value' => $capacity * 11800, 'time_consume' => 11340, 'cp' => 6, 'people_inc' => 1,
 
 'resources' => array( '1' => 740, '2' => 920, '3' => 645, '4' => 185 )
 
@@ -3545,7 +3552,7 @@ array(
 
 array(
 
-'value' => 14400, 'time_consume' => 13450, 'cp' => 7, 'people_inc' => 2,
+'value' => $capacity * 14400, 'time_consume' => 13450, 'cp' => 7, 'people_inc' => 2,
 
 'resources' => array( '1' => 945, '2' => 1180, '3' => 825, '4' => 235 )
 
@@ -3555,7 +3562,7 @@ array(
 
 array(
 
-'value' => 17600, 'time_consume' => 15910, 'cp' => 9, 'people_inc' => 2,
+'value' => $capacity * 17600, 'time_consume' => 15910, 'cp' => 9, 'people_inc' => 2,
 
 'resources' => array( '1' => 1210, '2' => 1510, '3' => 1060, '4' => 300 )
 
@@ -3565,7 +3572,7 @@ array(
 
 array(
 
-'value' => 21400, 'time_consume' => 18750, 'cp' => 11, 'people_inc' => 2,
+'value' => $capacity * 21400, 'time_consume' => 18750, 'cp' => 11, 'people_inc' => 2,
 
 'resources' => array( '1' => 1545, '2' => 1935, '3' => 1355, '4' => 385 )
 
@@ -3575,7 +3582,7 @@ array(
 
 array(
 
-'value' => 25900, 'time_consume' => 22050, 'cp' => 13, 'people_inc' => 2,
+'value' => $capacity * 25900, 'time_consume' => 22050, 'cp' => 13, 'people_inc' => 2,
 
 'resources' => array( '1' => 1980, '2' => 2475, '3' => 1735, '4' => 495 )
 
@@ -3585,7 +3592,7 @@ array(
 
 array(
 
-'value' => 31300, 'time_consume' => 25880, 'cp' => 15, 'people_inc' => 2,
+'value' => $capacity * 31300, 'time_consume' => 25880, 'cp' => 15, 'people_inc' => 2,
 
 'resources' => array( '1' => 2535, '2' => 3170, '3' => 2220, '4' => 635 )
 
@@ -3595,7 +3602,7 @@ array(
 
 array(
 
-'value' => 37900, 'time_consume' => 30320, 'cp' => 18, 'people_inc' => 2,
+'value' => $capacity * 37900, 'time_consume' => 30320, 'cp' => 18, 'people_inc' => 2,
 
 'resources' => array( '1' => 3245, '2' => 4055, '3' => 2840, '4' => 810 )
 
@@ -3605,7 +3612,7 @@ array(
 
 array(
 
-'value' => 45700, 'time_consume' => 35470, 'cp' => 22, 'people_inc' => 2,
+'value' => $capacity * 45700, 'time_consume' => 35470, 'cp' => 22, 'people_inc' => 2,
 
 'resources' => array( '1' => 4155, '2' => 5190, '3' => 3635, '4' => 1040 )
 
@@ -3615,7 +3622,7 @@ array(
 
 array(
 
-'value' => 55100, 'time_consume' => 41450, 'cp' => 27, 'people_inc' => 2,
+'value' => $capacity * 55100, 'time_consume' => 41450, 'cp' => 27, 'people_inc' => 2,
 
 'resources' => array( '1' => 5315, '2' => 6645, '3' => 4650, '4' => 1330 )
 
@@ -3625,7 +3632,7 @@ array(
 
 array(
 
-'value' => 66400, 'time_consume' => 48380, 'cp' => 32, 'people_inc' => 2,
+'value' => $capacity * 66400, 'time_consume' => 48380, 'cp' => 32, 'people_inc' => 2,
 
 'resources' => array( '1' => 6805, '2' => 8505, '3' => 5955, '4' => 1700 )
 
@@ -3635,9 +3642,10 @@ array(
 
 array(
 
-'value' => 80000, 'time_consume' => 56420, 'cp' => 38, 'people_inc' => 2,
+'value' => $capacity * 80000, 'time_consume' => 56420, 'cp' => 38, 'people_inc' => 2,
 
 'resources' => array( '1' => 8710, '2' => 10890, '3' => 7620, '4' => 2180 )
+
 
 ),
 
@@ -3646,6 +3654,7 @@ array(
 )
 
 ),
+
 
 
 
@@ -9609,7 +9618,7 @@ array(
 
 array(
 
-'value' => 100, 'time_consume' => 750, 'cp' => 1, 'people_inc' => 0,
+'value' => $cranny * 100, 'time_consume' => 750, 'cp' => 1, 'people_inc' => 0,
 
 'resources' => array( '1' => 40, '2' => 50, '3' => 30, '4' => 10 )
 
@@ -9619,7 +9628,7 @@ array(
 
 array(
 
-'value' => 130, 'time_consume' => 1170, 'cp' => 1, 'people_inc' => 0,
+'value' => $cranny * 130, 'time_consume' => 1170, 'cp' => 1, 'people_inc' => 0,
 
 'resources' => array( '1' => 50, '2' => 65, '3' => 40, '4' => 15 )
 
@@ -9629,7 +9638,7 @@ array(
 
 array(
 
-'value' => 170, 'time_consume' => 1660, 'cp' => 2, 'people_inc' => 0,
+'value' => $cranny * 170, 'time_consume' => 1660, 'cp' => 2, 'people_inc' => 0,
 
 'resources' => array( '1' => 65, '2' => 80, '3' => 50, '4' => 15 )
 
@@ -9639,7 +9648,7 @@ array(
 
 array(
 
-'value' => 220, 'time_consume' => 2220, 'cp' => 2, 'people_inc' => 0,
+'value' => $cranny * 220, 'time_consume' => 2220, 'cp' => 2, 'people_inc' => 0,
 
 'resources' => array( '1' => 85, '2' => 105, '3' => 65, '4' => 20 )
 
@@ -9649,7 +9658,7 @@ array(
 
 array(
 
-'value' => 280, 'time_consume' => 2880, 'cp' => 2, 'people_inc' => 0,
+'value' => $cranny * 280, 'time_consume' => 2880, 'cp' => 2, 'people_inc' => 0,
 
 'resources' => array( '1' => 105, '2' => 135, '3' => 80, '4' => 25 )
 
@@ -9659,7 +9668,7 @@ array(
 
 array(
 
-'value' => 360, 'time_consume' => 3640, 'cp' => 3, 'people_inc' => 1,
+'value' => $cranny * 360, 'time_consume' => 3640, 'cp' => 3, 'people_inc' => 1,
 
 'resources' => array( '1' => 135, '2' => 170, '3' => 105, '4' => 35 )
 
@@ -9669,7 +9678,7 @@ array(
 
 array(
 
-'value' => 460, 'time_consume' => 4520, 'cp' => 4, 'people_inc' => 1,
+'value' => $cranny * 460, 'time_consume' => 4520, 'cp' => 4, 'people_inc' => 1,
 
 'resources' => array( '1' => 175, '2' => 220, '3' => 130, '4' => 45 )
 
@@ -9679,7 +9688,7 @@ array(
 
 array(
 
-'value' => 600, 'time_consume' => 5540, 'cp' => 4, 'people_inc' => 1,
+'value' => $cranny * 600, 'time_consume' => 5540, 'cp' => 4, 'people_inc' => 1,
 
 'resources' => array( '1' => 225, '2' => 280, '3' => 170, '4' => 55 )
 
@@ -9689,7 +9698,7 @@ array(
 
 array(
 
-'value' => 770, 'time_consume' => 6730, 'cp' => 5, 'people_inc' => 1,
+'value' => $cranny * 770, 'time_consume' => 6730, 'cp' => 5, 'people_inc' => 1,
 
 'resources' => array( '1' => 290, '2' => 360, '3' => 215, '4' => 70 )
 
@@ -9699,7 +9708,7 @@ array(
 
 array(
 
-'value' => 1000, 'time_consume' => 8110, 'cp' => 6, 'people_inc' => 1,
+'value' => $cranny * 1000, 'time_consume' => 8110, 'cp' => 6, 'people_inc' => 1,
 
 'resources' => array( '1' => 370, '2' => 460, '3' => 275, '4' => 90 )
 
@@ -9710,6 +9719,8 @@ array(
 )
 
 ),
+
+
 
 
 
